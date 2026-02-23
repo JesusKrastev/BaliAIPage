@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Eliminación de Cuenta - DGT Test App</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Nunito+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --orange: #F47B20;
+    --orange-dark: #d96a10;
+    --dark: #111318;
+    --dark-card: #1c2030;
+    --muted: #8a93b0;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: 'Nunito Sans', sans-serif; background: var(--dark); color: #fff; overflow-x: hidden; }
+  h1,h2,h3,h4,h5 { font-family: 'Nunito', sans-serif; }
+
+  /* NAV */
+  .navbar { background: rgba(17,19,24,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(244,123,32,0.12); padding: 1rem 0; position: sticky; top:0; z-index:1000; }
+  .navbar-brand { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.5rem; color:#fff !important; }
+  .navbar-brand span { color: var(--orange); }
+  .nav-link { color: rgba(255,255,255,0.75) !important; font-weight:600; transition:color 0.2s; }
+  .nav-link:hover { color: var(--orange) !important; }
+  .btn-nav { background: var(--orange); color:#fff !important; border-radius:50px; padding:0.45rem 1.4rem; font-weight:700; transition: background 0.2s, transform 0.15s; }
+  .btn-nav:hover { background: var(--orange-dark); transform: translateY(-1px); }
+
+  /* LEGAL CONTENT */
+  .legal-section { padding: 60px 0 100px; }
+  .legal-card { background: var(--dark-card); border-radius: 24px; padding: 40px 50px; border: 1px solid rgba(255,255,255,0.06); box-shadow: 0 20px 60px rgba(0,0,0,0.2); }
+  .legal-card h1 { font-size: 2.2rem; font-weight: 900; margin-bottom: 0.5rem; }
+  .legal-card h2 { font-size: 1.4rem; font-weight: 800; color: var(--orange); margin-top: 2rem; margin-bottom: 1rem; }
+  .legal-card p, .legal-card li { color: rgba(255,255,255,0.85); font-size: 1.05rem; line-height: 1.7; }
+  .legal-card ol { margin-bottom: 1.5rem; color: rgba(255,255,255,0.85); font-size: 1.05rem; line-height: 1.7; }
+  .legal-card li { margin-bottom: 0.5rem; }
+  .alert-box { background: rgba(244,123,32,0.1); border-left: 4px solid var(--orange); padding: 20px; border-radius: 8px; margin-top: 30px; }
+  .alert-box h4 { color: var(--orange); font-weight: 800; margin-bottom: 10px; font-size: 1.1rem; }
+
+  /* FOOTER */
+  footer { background:#0c0e13; padding:60px 0 30px; border-top:1px solid rgba(255,255,255,0.06); }
+  .footer-brand { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.4rem; color:#fff; }
+  .footer-brand span { color:var(--orange); }
+  .footer-desc { color:var(--muted); font-size:0.9rem; line-height:1.65; margin-top:10px; max-width:280px; }
+  .footer-title { font-weight:800; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:rgba(255,255,255,0.35); margin-bottom:16px; }
+  .footer-link { display:block; color:rgba(255,255,255,0.65); font-size:0.9rem; text-decoration:none; margin-bottom:10px; transition:color 0.2s; }
+  .footer-link:hover { color:var(--orange); }
+  .footer-bottom { border-top:1px solid rgba(255,255,255,0.06); margin-top:40px; padding-top:24px; text-align:center; color:var(--muted); font-size:0.82rem; }
+
+  @media(max-width:768px) {
+    .legal-card { padding: 30px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">🚦 DGT<span>Test</span></a>
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center gap-2 mt-3 mt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="index.html#funciones">Funciones</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#como-funciona">Cómo funciona</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#opiniones">Opiniones</a></li>
+        <li class="nav-item ms-2"><a class="nav-link btn-nav" href="index.html#descargar">Descargar gratis</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="legal-section">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="legal-card">
+          <h1>Eliminación de Cuenta</h1>
+          
+          <p class="mt-3">Entendemos que, una vez que hayas aprobado tu examen a la primera, o si simplemente decides dejar de usar nuestra aplicación, es posible que quieras eliminar tus datos de nuestros sistemas de forma permanente.</p>
+
+          <h2>Cómo solicitar la eliminación de tu cuenta</h2>
+          <p>Para eliminar tu cuenta, sigue estos sencillos pasos:</p>
+          <ol>
+            <li>Envía un correo electrónico a <a href="mailto:hola@dgttestapp.es" style="color:var(--orange); font-weight:bold;">hola@dgttestapp.es</a> desde la <strong>misma dirección de correo electrónico</strong> con la que te registraste en la aplicación.</li>
+            <li>En el asunto del correo, escribe: <strong>"Solicitud de eliminación de cuenta"</strong>.</li>
+            <li>En el cuerpo del mensaje, indícanos tu nombre de usuario y que deseas que todos tus datos sean borrados.</li>
+          </ol>
+          
+          <p>Nuestro equipo de soporte procesará tu solicitud lo antes posible y te confirmará por la misma vía una vez que la cuenta haya sido eliminada de nuestra base de datos.</p>
+
+          <div class="alert-box">
+            <h4><i class="fas fa-exclamation-triangle"></i> Importante: Acción Irreversible</h4>
+            <p style="margin-bottom: 10px; font-size: 0.95rem;">Ten en cuenta que al eliminar tu cuenta, perderás de forma permanente todo tu progreso. Esto incluye:</p>
+            <ul style="margin-bottom: 0; font-size: 0.95rem;">
+              <li>Tus estadísticas, racha de días y precisión global.</li>
+              <li>Tus niveles y experiencia (XP) acumulada.</li>
+              <li>El historial de fallos y el aprendizaje personalizado de la IA.</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="row gy-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">🚦 DGT<span>Test</span></div>
+        <div class="footer-desc">La app de inteligencia artificial para preparar el examen teórico de la DGT. Aprueba más rápido, estudia más inteligente.</div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-2">
+        <div class="footer-title">App</div>
+        <a href="index.html#funciones" class="footer-link">Funciones</a>
+        <a href="index.html#como-funciona" class="footer-link">Cómo funciona</a>
+        <a href="index.html#opiniones" class="footer-link">Opiniones</a>
+        <a href="index.html#descargar" class="footer-link">Descargar</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-title">Legal</div>
+        <a href="privacidad.html" class="footer-link">Política de privacidad</a>
+        <a href="eliminar-cuenta.html" class="footer-link">Eliminar cuenta</a>
+        <a href="#" class="footer-link">Términos de uso</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-title">Contacto</div>
+        <a href="mailto:hola@dgttestapp.es" class="footer-link">hola@dgttestapp.es</a>
+        <a href="#" class="footer-link">Instagram</a>
+        <a href="#" class="footer-link">Twitter / X</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2026 DGTTest App · Todos los derechos reservados · No afiliado a la DGT oficial
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
