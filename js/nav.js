@@ -1,5 +1,7 @@
-/* ===== BALI AI — Navbar: shrink al hacer scroll + menú hamburguesa =====
-   Compartido por todas las páginas del sitio. */
+/* ===== BALI AI — Navbar + botón compartir, compartido por todas las páginas =====
+   Shrink del navbar al hacer scroll, menú hamburguesa y el botón "Compartir"
+   que aparece en la tarjeta de descarga (usa Web Share API si existe, si no
+   copia el enlace al portapapeles). */
 (function () {
   'use strict';
 
@@ -29,6 +31,22 @@
       navLinks.style.padding = '24px';
       navLinks.style.gap = '16px';
       navLinks.style.borderBottom = '1px solid rgba(244,123,32,0.15)';
+    });
+  }
+
+  var btnCompartir = document.getElementById('btnCompartir');
+  if (btnCompartir) {
+    btnCompartir.addEventListener('click', function () {
+      var data = { title: document.title, text: 'Repasa el temario del teórico DGT gratis con esquemas, trucos y mini tests.', url: location.origin + location.pathname };
+      if (navigator.share) {
+        navigator.share(data).catch(function () {});
+      } else {
+        navigator.clipboard.writeText(data.url).then(function () {
+          var textoOriginal = btnCompartir.innerHTML;
+          btnCompartir.innerHTML = '<i class="fas fa-check"></i> Enlace copiado';
+          setTimeout(function () { btnCompartir.innerHTML = textoOriginal; }, 2200);
+        }).catch(function () {});
+      }
     });
   }
 })();

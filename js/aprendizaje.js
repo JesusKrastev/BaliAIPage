@@ -51,25 +51,6 @@
     onScroll();
   }
 
-  // ---------- Botón compartir con un amigo ----------
-  function initCompartir() {
-    var btn = document.getElementById('btnCompartir');
-    if (!btn) return;
-    btn.addEventListener('click', function () {
-      var data = { title: 'Bali AI — Aprendizaje', text: 'Repasa el temario del teórico DGT gratis con esquemas, trucos y mini tests.', url: location.origin + location.pathname };
-      if (navigator.share) {
-        navigator.share(data).catch(function () {});
-      } else {
-        navigator.clipboard.writeText(data.url).then(function () {
-          var textoOriginal = btn.innerHTML;
-          btn.innerHTML = '<i class="fas fa-check"></i> Enlace copiado';
-          setTimeout(function () { btn.innerHTML = textoOriginal; }, 2200);
-        }).catch(function () {});
-      }
-    });
-  }
-
   renderPortada();
   initWidgetFlotante();
-  initCompartir();
 })();

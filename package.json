@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "prebuild": "node build/comprimir-ilustraciones.js",
-    "build": "node build/generar-paginas-aprendizaje.js"
+    "build": "node build/generar-paginas-aprendizaje.js && node build/generar-blog.js"
   },
   "dependencies": {
     "sharp": "^0.33.0"

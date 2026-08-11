@@ -26,7 +26,7 @@
 
   function imgTag(ilustracion, className, basePath) {
     if (!ilustracion) return '';
-    var placeholder = basePath + 'img/happy_bali.png';
+    var placeholder = basePath + 'img/happy_bali.webp';
     return '<img src="' + esc(basePath + ilustracion.src) + '" alt="' + esc(ilustracion.alt) + '" class="' + className + '" loading="lazy" ' +
       'onerror="this.onerror=null;this.src=\'' + placeholder + '\';">';
   }
@@ -291,7 +291,7 @@
       var postQuizCta = document.createElement('div');
       postQuizCta.className = 'post-quiz-cta';
       postQuizCta.innerHTML =
-        '<div class="post-quiz-cta-visual"><img src="' + (window.APRENDIZAJE_BASE_PATH || '') + 'img/happy_bali.png" alt="Bali animándote a seguir" class="post-quiz-cta-mascot"></div>' +
+        '<div class="post-quiz-cta-visual"><img src="' + (window.APRENDIZAJE_BASE_PATH || '') + 'img/happy_bali.webp" alt="Bali animándote a seguir" class="post-quiz-cta-mascot"></div>' +
         '<div class="post-quiz-cta-content">' +
           '<span class="post-quiz-cta-tag"><i class="fas fa-star"></i> Test completado</span>' +
           '<h4>Para aprobar a la primera, esto no te puede fallar.</h4>' +
