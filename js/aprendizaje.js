@@ -12,7 +12,6 @@
 
   var BLOQUES = window.APRENDIZAJE_BLOQUES || [];
   var STORAGE_KEY = 'baliAprendizajeProgreso';
-  var WIDGET_DISMISSED_KEY = 'baliAprendizajeWidgetCerrado';
   var RACHA_KEY = 'baliAprendizajeRacha';
   var MICRO_LOGRO_KEY = 'baliAprendizajeMicroLogro';
   var PLACEHOLDER_ILUSTRACION = 'img/happy_bali.png';
@@ -522,12 +521,10 @@
     renderPortada();
   }
 
-  // ---------- Widget flotante discreto ----------
+  // ---------- Widget flotante ----------
   function initWidgetFlotante() {
     var widget = document.getElementById('widgetFlotante');
-    var btnCerrar = document.getElementById('widgetFlotanteCerrar');
     if (!widget) return;
-    if (localStorage.getItem(WIDGET_DISMISSED_KEY) === '1') return;
 
     var mostrado = false;
     function onScroll() {
@@ -538,13 +535,6 @@
     }
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
-
-    if (btnCerrar) {
-      btnCerrar.addEventListener('click', function () {
-        widget.classList.remove('visible');
-        localStorage.setItem(WIDGET_DISMISSED_KEY, '1');
-      });
-    }
   }
 
   // ---------- Botón compartir con un amigo ----------
