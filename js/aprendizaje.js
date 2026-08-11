@@ -13,6 +13,8 @@
   var BLOQUES = window.APRENDIZAJE_BLOQUES || [];
   var STORAGE_KEY = 'baliAprendizajeProgreso';
   var WIDGET_DISMISSED_KEY = 'baliAprendizajeWidgetCerrado';
+  var RACHA_KEY = 'baliAprendizajeRacha';
+  var MICRO_LOGRO_KEY = 'baliAprendizajeMicroLogro';
   var PLACEHOLDER_ILUSTRACION = 'img/happy_bali.png';
   var SENALES_PATH = 'img/aprendizaje/senales/';
   var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.jesuskrastev.bali';
@@ -29,6 +31,7 @@
   var progresoGlobalFill = document.getElementById('progresoGlobalFill');
   var progresoGlobalLabel = document.getElementById('progresoGlobalLabel');
   var progresoZeigarnik = document.getElementById('progresoZeigarnik');
+  var rachaBadge = document.getElementById('rachaBadge');
 
   // ---------- Progreso (localStorage) ----------
   function getProgreso() {
@@ -41,15 +44,65 @@
     localStorage.setItem(STORAGE_KEY, JSON.stringify(progreso));
     actualizarProgresoGlobal();
   }
+
+  // ---------- Racha real (días consecutivos visitando la sección) ----------
+  function fechaISO(d) { return d.toISOString().slice(0, 10); }
+  function actualizarRacha() {
+    var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
+    var hoyStr = fechaISO(hoy);
+    var datos;
+    try { datos = JSON.parse(localStorage.getItem(RACHA_KEY)) || {}; } catch (e) { datos = {}; }
+    if (datos.ultimaFecha !== hoyStr) {
+      var ayer = new Date(hoy); ayer.setDate(ayer.getDate() - 1);
+      datos.racha = (datos.ultimaFecha === fechaISO(ayer)) ? (datos.racha || 0) + 1 : 1;
+      datos.ultimaFecha = hoyStr;
+      localStorage.setItem(RACHA_KEY, JSON.stringify(datos));
+    }
+    return datos.racha || 1;
+  }
+
   function actualizarProgresoGlobal() {
     var disponibles = BLOQUES.filter(function (b) { return b.disponible; });
     var progreso = getProgreso();
     var completados = disponibles.filter(function (b) { return progreso[b.id] && progreso[b.id].completado; }).length;
-    var pct = disponibles.length ? Math.round((completados / disponibles.length) * 100) : 0;
+    // Efecto de progreso dotado, versión honesta: el primer "paso" (ver el
+    // resumen de un bloque) cuenta de verdad, no se regala al cargar la página.
+    var microLogro = localStorage.getItem(MICRO_LOGRO_KEY) === '1';
+    var totalPasos = disponibles.length + 1;
+    var pasosCompletados = (microLogro ? 1 : 0) + completados;
+    var pct = totalPasos ? Math.round((pasosCompletados / totalPasos) * 100) : 0;
     if (progresoGlobalFill) progresoGlobalFill.style.width = pct + '%';
-    if (progresoGlobalLabel) progresoGlobalLabel.textContent = completados + ' de ' + disponibles.length + ' bloques repasados (' + pct + '%)';
-    // Efecto Zeigarnik: solo aparece si ya hay progreso real que "continuar".
-    if (progresoZeigarnik) progresoZeigarnik.hidden = completados === 0;
+    if (progresoGlobalLabel) progresoGlobalLabel.textContent = pasosCompletados + ' de ' + totalPasos + ' pasos completados (' + pct + '%)';
+
+    var racha = actualizarRacha();
+    if (rachaBadge) {
+      if (completados > 0) {
+        rachaBadge.hidden = false;
+        rachaBadge.innerHTML = '<i class="fas fa-fire"></i> Racha: ' + racha + (racha === 1 ? ' día' : ' días');
+      } else {
+        rachaBadge.hidden = true;
+      }
+    }
+
+    // Efecto Zeigarnik + aversión a la pérdida + "casi lo tienes", según el estado real.
+    if (progresoZeigarnik) {
+      if (completados === 0) {
+        progresoZeigarnik.hidden = true;
+      } else if (completados === disponibles.length) {
+        progresoZeigarnik.hidden = false;
+        progresoZeigarnik.innerHTML = '🎉 Has terminado todo el repaso gratuito disponible. La preparación completa para el examen real está en la app. ' +
+          '<a href="' + PLAY_STORE_URL + '" target="_blank" rel="noopener">Descargar app <i class="fas fa-arrow-right"></i></a>';
+      } else if (disponibles.length > 1 && completados === disponibles.length - 1) {
+        progresoZeigarnik.hidden = false;
+        progresoZeigarnik.innerHTML = '🔥 Estás a un bloque de terminar todo lo gratuito. Sigue en la app sin cortes. ' +
+          '<a href="' + PLAY_STORE_URL + '" target="_blank" rel="noopener">Abrir Google Play <i class="fas fa-arrow-right"></i></a>';
+      } else {
+        var rachaTxt = racha >= 2 ? ' y tu racha de ' + racha + ' días' : '';
+        progresoZeigarnik.hidden = false;
+        progresoZeigarnik.innerHTML = 'Vas camino de aprobar a la primera. Si cambias de navegador o dispositivo sin la app, pierdes tu progreso' + rachaTxt + '. ' +
+          '<a href="' + PLAY_STORE_URL + '" target="_blank" rel="noopener">Continuar en la app <i class="fas fa-arrow-right"></i></a>';
+      }
+    }
   }
 
   // ---------- Utilidades ----------
@@ -348,6 +401,10 @@
           '<span class="post-quiz-cta-tag"><i class="fas fa-star"></i> Test completado</span>' +
           '<h4>Para aprobar a la primera, esto no te puede fallar.</h4>' +
           '<p>En la app tienes más sobre <strong>' + esc(bloque.titulo) + '</strong>: preguntas estilo examen oficial, modo cronometrado y tus estadísticas de en qué fallas más — pensada para que no suspendas por una tontería.</p>' +
+          '<div class="post-quiz-preview">' +
+            '<div class="post-quiz-preview-blur"><div class="ppv-bar" style="width:72%"></div><div class="ppv-bar" style="width:48%"></div><div class="ppv-bar" style="width:86%"></div></div>' +
+            '<span class="post-quiz-preview-label"><i class="fas fa-lock"></i> Así se verían tus estadísticas de fallos reales (ejemplo ilustrativo)</span>' +
+          '</div>' +
           '<div class="post-quiz-cta-stats">' + esc(STAT_USUARIOS) + ' ya han aprobado con Bali AI · ' + esc(STAT_APROBADOS) + '</div>' +
           '<a href="' + PLAY_STORE_URL + '" class="post-quiz-cta-btn" target="_blank" rel="noopener"><i class="fab fa-google-play"></i> Seguir en Google Play</a>' +
         '</div>';
@@ -439,9 +496,15 @@
 
   // ---------- Router (hash) ----------
   function mostrarVista() {
-    actualizarProgresoGlobal();
     var hash = location.hash; // "#/bloque/senales-verticales"
     var match = hash.match(/^#\/bloque\/(.+)$/);
+    var bloquePrevio = match && BLOQUES.filter(function (b) { return b.id === match[1] && b.disponible; })[0];
+    if (bloquePrevio) {
+      // Micro-logro real: abrir un bloque y ver su resumen cuenta como progreso genuino,
+      // no se regala solo por cargar la portada (efecto de progreso dotado, versión honesta).
+      localStorage.setItem(MICRO_LOGRO_KEY, '1');
+    }
+    actualizarProgresoGlobal();
     if (match) {
       var bloque = BLOQUES.filter(function (b) { return b.id === match[1] && b.disponible; })[0];
       if (bloque) {
@@ -484,8 +547,27 @@
     }
   }
 
+  // ---------- Botón compartir con un amigo ----------
+  function initCompartir() {
+    var btn = document.getElementById('btnCompartir');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      var data = { title: 'Bali AI — Aprendizaje', text: 'Repasa el temario del teórico DGT gratis con esquemas, trucos y mini tests.', url: location.origin + location.pathname };
+      if (navigator.share) {
+        navigator.share(data).catch(function () {});
+      } else {
+        navigator.clipboard.writeText(data.url).then(function () {
+          var textoOriginal = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-check"></i> Enlace copiado';
+          setTimeout(function () { btn.innerHTML = textoOriginal; }, 2200);
+        }).catch(function () {});
+      }
+    });
+  }
+
   if (btnVolver) btnVolver.addEventListener('click', function () { location.hash = ''; });
   window.addEventListener('hashchange', mostrarVista);
   mostrarVista();
   initWidgetFlotante();
+  initCompartir();
 })();

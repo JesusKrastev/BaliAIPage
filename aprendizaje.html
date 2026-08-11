@@ -44,13 +44,14 @@
           Si solo tienes tiempo de repasar una cosa, que sea esto.</p>
       </div>
       <div class="progreso-global-card">
-        <div class="progreso-global-bar"><div class="progreso-global-fill" id="progresoGlobalFill"></div></div>
-        <div class="progreso-global-label" id="progresoGlobalLabel">0 de 0 bloques repasados (0%)</div>
-        <div class="progreso-zeigarnik" id="progresoZeigarnik" hidden>
-          Vas camino de aprobar a la primera. En la app tu progreso se guarda solo y te avisa cuándo repasar.
-          <a href="https://play.google.com/store/apps/details?id=com.jesuskrastev.bali" target="_blank" rel="noopener">Continuar en la app <i class="fas fa-arrow-right"></i></a>
+        <div class="progreso-global-top">
+          <div class="progreso-global-bar"><div class="progreso-global-fill" id="progresoGlobalFill"></div></div>
+          <span class="racha-badge" id="rachaBadge" hidden></span>
         </div>
+        <div class="progreso-global-label" id="progresoGlobalLabel">0 de 1 pasos completados (0%)</div>
+        <div class="progreso-zeigarnik" id="progresoZeigarnik" hidden></div>
       </div>
+
       <div class="leyenda-colores">
         <span class="leyenda-item"><span class="leyenda-dot leyenda-dot-rojo"></span> Peligro / Prohibido</span>
         <span class="leyenda-item"><span class="leyenda-dot leyenda-dot-verde"></span> Permitido / Correcto</span>
@@ -80,16 +81,8 @@
       <div class="cta-card">
         <img src="img/happy_bali.png" alt="Bali te espera" class="cta-mascot">
         <h2>Esto es el repaso. Para aprobar a la primera, hace falta algo más.</h2>
-        <ul class="cta-bullets">
-          <li><i class="fas fa-check"></i> Tests oficiales completos, la IA detecta tus fallos y te los repite</li>
-          <li><i class="fas fa-check"></i> Modo examen cronometrado, igual que el día real</li>
-          <li><i class="fas fa-check"></i> Racha, XP y progreso guardado — para no fallar por perder el hilo</li>
-        </ul>
-        <div class="cta-testimonial">
-          <p>«El sistema de XP y niveles me mantuvo motivada cada día. Nunca pensé que estudiar para el carnet pudiera ser tan entretenido. ¡Y aprobé a la primera!»</p>
-          <div class="cta-testimonial-author">— Sara G., aprobó a la primera ✅</div>
-        </div>
-        <p class="cta-social-proof">+1.000 conductores ya han aprobado con Bali AI · 95.2% de aprobados · 4.9★</p>
+        <p class="cta-subtexto">Tests oficiales, modo examen cronometrado y tu progreso guardado.</p>
+        <p class="cta-social-proof">+1.000 conductores ya aprobados · 95.2% · 4.9★</p>
         <div class="store-buttons">
           <a href="https://play.google.com/store/apps/details?id=com.jesuskrastev.bali" class="store-btn" target="_blank" rel="noopener">
             <i class="fab fa-google-play"></i>
@@ -99,6 +92,7 @@
             </div>
           </a>
         </div>
+        <button class="btn-compartir" id="btnCompartir"><i class="fas fa-user-plus"></i> Compartir con un amigo</button>
       </div>
     </div>
   </section>
