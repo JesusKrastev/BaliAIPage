@@ -283,6 +283,7 @@ function paginaHtml(bloque, todos) {
 '  <script src="../js/aprendizaje-detalle.js"></script>\n' +
 '  <script src="../js/aprendizaje.js"></script>\n' +
 '  <script src="../js/aprendizaje-bloque.js"></script>\n' +
+'  <script defer src="/_vercel/insights/script.js"></script>\n' +
 '</body>\n\n' +
 '</html>\n';
 }
