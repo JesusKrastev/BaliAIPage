@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aprendizaje — Bali AI</title>
+  <meta name="description"
+    content="Repasa el temario del examen teórico de la DGT con esquemas interactivos, trucos nemotécnicos y mini tests por bloque, explicado por Bali.">
+  <link rel="icon" type="image/png" href="img/bali.png">
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a class="nav-brand" href="index.html">
+        <img src="img/bali.png" alt="Bali AI">
+        Bali<span>AI</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#funciones">Funciones</a></li>
+        <li><a href="index.html#como-funciona">Cómo funciona</a></li>
+        <li><a href="aprendizaje.html" class="nav-link-active">Aprendizaje</a></li>
+        <li><a href="index.html#opiniones">Opiniones</a></li>
+        <li><a href="index.html#descargar" class="btn-cta">Descargar</a></li>
+      </ul>
+      <button class="hamburger" id="hamburger" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- APRENDIZAJE HERO -->
+  <section class="aprendizaje-hero">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Aprendizaje</div>
+        <h1 class="section-title">El temario DGT, <span>a la manera de Bali</span></h1>
+        <p class="section-sub">Esquemas interactivos, trucos para que no se te olvide nada y un mini test por bloque.
+          Si solo tienes tiempo de repasar una cosa, que sea esto.</p>
+      </div>
+      <div class="progreso-global-card">
+        <div class="progreso-global-bar"><div class="progreso-global-fill" id="progresoGlobalFill"></div></div>
+        <div class="progreso-global-label" id="progresoGlobalLabel">0 de 0 bloques repasados (0%)</div>
+        <div class="progreso-zeigarnik" id="progresoZeigarnik" hidden>
+          Vas camino de aprobar a la primera. En la app tu progreso se guarda solo y te avisa cuándo repasar.
+          <a href="https://play.google.com/store/apps/details?id=com.jesuskrastev.bali" target="_blank" rel="noopener">Continuar en la app <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+      <div class="leyenda-colores">
+        <span class="leyenda-item"><span class="leyenda-dot leyenda-dot-rojo"></span> Peligro / Prohibido</span>
+        <span class="leyenda-item"><span class="leyenda-dot leyenda-dot-verde"></span> Permitido / Correcto</span>
+        <span class="leyenda-item"><span class="leyenda-dot leyenda-dot-azul"></span> Información / Obligatorio</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTADA: grid de bloques -->
+  <section class="aprendizaje-portada" id="vista-portada">
+    <div class="container">
+      <div class="bloques-grid" id="bloquesGrid"></div>
+    </div>
+  </section>
+
+  <!-- DETALLE: bloque individual -->
+  <section class="aprendizaje-detalle" id="vista-detalle" hidden>
+    <div class="container">
+      <button class="btn-volver" id="btnVolver"><i class="fas fa-arrow-left"></i> Todos los bloques</button>
+      <div id="detalleContenido"></div>
+    </div>
+  </section>
+
+  <!-- CTA: solo en la portada, al final del temario -->
+  <section class="cta" id="vista-portada-cta">
+    <div class="container">
+      <div class="cta-card">
+        <img src="img/happy_bali.png" alt="Bali te espera" class="cta-mascot">
+        <h2>Esto es el repaso. Para aprobar a la primera, hace falta algo más.</h2>
+        <ul class="cta-bullets">
+          <li><i class="fas fa-check"></i> Tests oficiales completos, la IA detecta tus fallos y te los repite</li>
+          <li><i class="fas fa-check"></i> Modo examen cronometrado, igual que el día real</li>
+          <li><i class="fas fa-check"></i> Racha, XP y progreso guardado — para no fallar por perder el hilo</li>
+        </ul>
+        <div class="cta-testimonial">
+          <p>«El sistema de XP y niveles me mantuvo motivada cada día. Nunca pensé que estudiar para el carnet pudiera ser tan entretenido. ¡Y aprobé a la primera!»</p>
+          <div class="cta-testimonial-author">— Sara G., aprobó a la primera ✅</div>
+        </div>
+        <p class="cta-social-proof">+1.000 conductores ya han aprobado con Bali AI · 95.2% de aprobados · 4.9★</p>
+        <div class="store-buttons">
+          <a href="https://play.google.com/store/apps/details?id=com.jesuskrastev.bali" class="store-btn" target="_blank" rel="noopener">
+            <i class="fab fa-google-play"></i>
+            <div class="store-btn-text">
+              <div class="store-btn-label">Descargar en</div>
+              <div class="store-btn-name">Google Play</div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="img/bali.png" alt="Bali AI">
+            Bali<span>AI</span>
+          </div>
+          <div class="footer-desc">La app de inteligencia artificial para preparar el examen teórico de la DGT. Aprueba
+            más rápido, estudia más inteligente.</div>
+        </div>
+        <div>
+          <div class="footer-title">App</div>
+          <a href="index.html#funciones" class="footer-link">Funciones</a>
+          <a href="index.html#como-funciona" class="footer-link">Cómo funciona</a>
+          <a href="aprendizaje.html" class="footer-link">Aprendizaje</a>
+          <a href="index.html#descargar" class="footer-link">Descargar</a>
+        </div>
+        <div>
+          <div class="footer-title">Legal</div>
+          <a href="./privacidad.html" class="footer-link">Política de privacidad</a>
+          <a href="./eliminar-cuenta.html" class="footer-link">Eliminar cuenta</a>
+          <a href="terminos.html" class="footer-link">Términos de uso</a>
+        </div>
+        <div>
+          <div class="footer-title">Contacto</div>
+          <a href="mailto:appbaliai@gmail.com" class="footer-link">appbaliai@gmail.com</a>
+          <a href="#" class="footer-link">Instagram</a>
+          <a href="#" class="footer-link">Twitter / X</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 Bali AI · Todos los derechos reservados · No afiliado a la DGT oficial
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar shrink on scroll
+    window.addEventListener('scroll', () => {
+      const nav = document.getElementById('navbar');
+      if (window.scrollY > 60) {
+        nav.style.padding = '8px 0';
+        nav.style.background = 'rgba(13,15,20,0.97)';
+      } else {
+        nav.style.padding = '14px 0';
+        nav.style.background = 'rgba(13,15,20,0.92)';
+      }
+    });
+
+    // Mobile hamburger
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    if (hamburger) {
+      hamburger.addEventListener('click', () => {
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.right = '0';
+        navLinks.style.background = 'rgba(13,15,20,0.98)';
+        navLinks.style.padding = '24px';
+        navLinks.style.gap = '16px';
+        navLinks.style.borderBottom = '1px solid rgba(244,123,32,0.15)';
+      });
+    }
+  </script>
+
+  <!-- Widget flotante discreto: aparece tras hacer scroll, se puede cerrar -->
+  <div class="widget-flotante" id="widgetFlotante">
+    <a href="https://play.google.com/store/apps/details?id=com.jesuskrastev.bali" target="_blank" rel="noopener">
+      <i class="fab fa-google-play"></i> <span>Sigue tu progreso en la app</span>
+    </a>
+    <button class="widget-flotante-cerrar" id="widgetFlotanteCerrar" aria-label="Cerrar"><i class="fas fa-xmark"></i></button>
+  </div>
+
+  <script src="data/aprendizaje.js"></script>
+  <script src="js/aprendizaje.js"></script>
+</body>
+
+</html>
