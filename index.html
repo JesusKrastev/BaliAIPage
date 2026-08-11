@@ -7,9 +7,59 @@
   <title>Bali AI — Aprueba el teórico con inteligencia artificial</title>
   <meta name="description"
     content="Bali AI es la app con inteligencia artificial que detecta tus puntos débiles y adapta los tests para que apruebes el examen teórico de la DGT a la primera.">
+  <link rel="canonical" href="https://baliai.es/">
+  <meta name="theme-color" content="#0D0F14">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://baliai.es/">
+  <meta property="og:site_name" content="Bali AI">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Bali AI — Aprueba el teórico con inteligencia artificial">
+  <meta property="og:description"
+    content="La app con inteligencia artificial que detecta tus puntos débiles y adapta los tests para que apruebes el examen teórico de la DGT a la primera.">
+  <meta property="og:image" content="https://baliai.es/img/bali.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Bali AI — Aprueba el teórico con inteligencia artificial">
+  <meta name="twitter:description"
+    content="La app con inteligencia artificial que detecta tus puntos débiles y adapta los tests para que apruebes el examen teórico de la DGT a la primera.">
+  <meta name="twitter:image" content="https://baliai.es/img/bali.png">
+
   <link rel="icon" type="image/png" href="img/bali.png">
+  <link rel="apple-touch-icon" href="img/bali.png">
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "MobileApplication",
+    "name": "Bali AI",
+    "url": "https://baliai.es/",
+    "description": "Bali AI es la app con inteligencia artificial que detecta tus puntos débiles y adapta los tests para que apruebes el examen teórico de la DGT a la primera.",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "Android",
+    "image": "https://baliai.es/img/bali.png",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "EUR"
+    },
+    "installUrl": "https://play.google.com/store/apps/details?id=com.jesuskrastev.bali"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Bali AI",
+    "url": "https://baliai.es/",
+    "logo": "https://baliai.es/img/bali.png",
+    "email": "appbaliai@gmail.com"
+  }
+  </script>
 </head>
 
 <body>
@@ -414,36 +464,6 @@
       });
     });
 
-    // Navbar shrink on scroll
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (window.scrollY > 60) {
-        nav.style.padding = '8px 0';
-        nav.style.background = 'rgba(13,15,20,0.97)';
-      } else {
-        nav.style.padding = '14px 0';
-        nav.style.background = 'rgba(13,15,20,0.92)';
-      }
-    });
-
-    // Mobile hamburger
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    if (hamburger) {
-      hamburger.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.background = 'rgba(13,15,20,0.98)';
-        navLinks.style.padding = '24px';
-        navLinks.style.gap = '16px';
-        navLinks.style.borderBottom = '1px solid rgba(244,123,32,0.15)';
-      });
-    }
-
     // Counter animation
     function animateCounters() {
       const counters = document.querySelectorAll('[data-count]');
@@ -469,6 +489,7 @@
     const statsBar = document.querySelector('.stats-bar');
     if (statsBar) counterObserver.observe(statsBar);
   </script>
+  <script src="js/nav.js"></script>
 </body>
 
 </html>

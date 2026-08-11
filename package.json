@@ -1,0 +1,11 @@
+{
+  "name": "baliai-page",
+  "private": true,
+  "scripts": {
+    "prebuild": "node build/comprimir-ilustraciones.js",
+    "build": "node build/generar-paginas-aprendizaje.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.0"
+  }
+}

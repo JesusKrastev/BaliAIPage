@@ -7,7 +7,28 @@
   <title>Aprendizaje — Bali AI</title>
   <meta name="description"
     content="Repasa el temario del examen teórico de la DGT con esquemas interactivos, trucos nemotécnicos y mini tests por bloque, explicado por Bali.">
+  <link rel="canonical" href="https://baliai.es/aprendizaje.html">
+  <meta name="theme-color" content="#0D0F14">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://baliai.es/aprendizaje.html">
+  <meta property="og:site_name" content="Bali AI">
+  <meta property="og:locale" content="es_ES">
+  <meta property="og:title" content="Aprendizaje — Bali AI">
+  <meta property="og:description"
+    content="Repasa el temario del examen teórico de la DGT con esquemas interactivos, trucos nemotécnicos y mini tests por bloque, explicado por Bali.">
+  <meta property="og:image" content="https://baliai.es/img/bali.png">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Aprendizaje — Bali AI">
+  <meta name="twitter:description"
+    content="Repasa el temario del examen teórico de la DGT con esquemas interactivos, trucos nemotécnicos y mini tests por bloque, explicado por Bali.">
+  <meta name="twitter:image" content="https://baliai.es/img/bali.png">
+
   <link rel="icon" type="image/png" href="img/bali.png">
+  <link rel="apple-touch-icon" href="img/bali.png">
   <link rel="stylesheet" href="styles.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -67,15 +88,7 @@
     </div>
   </section>
 
-  <!-- DETALLE: bloque individual -->
-  <section class="aprendizaje-detalle" id="vista-detalle" hidden>
-    <div class="container">
-      <button class="btn-volver" id="btnVolver"><i class="fas fa-arrow-left"></i> Todos los bloques</button>
-      <div id="detalleContenido"></div>
-    </div>
-  </section>
-
-  <!-- CTA: solo en la portada, al final del temario -->
+  <!-- CTA: al final del temario -->
   <section class="cta" id="vista-portada-cta">
     <div class="container">
       <div class="cta-card">
@@ -135,38 +148,6 @@
     </div>
   </footer>
 
-  <script>
-    // Navbar shrink on scroll
-    window.addEventListener('scroll', () => {
-      const nav = document.getElementById('navbar');
-      if (window.scrollY > 60) {
-        nav.style.padding = '8px 0';
-        nav.style.background = 'rgba(13,15,20,0.97)';
-      } else {
-        nav.style.padding = '14px 0';
-        nav.style.background = 'rgba(13,15,20,0.92)';
-      }
-    });
-
-    // Mobile hamburger
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    if (hamburger) {
-      hamburger.addEventListener('click', () => {
-        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.right = '0';
-        navLinks.style.background = 'rgba(13,15,20,0.98)';
-        navLinks.style.padding = '24px';
-        navLinks.style.gap = '16px';
-        navLinks.style.borderBottom = '1px solid rgba(244,123,32,0.15)';
-      });
-    }
-  </script>
-
   <!-- Widget flotante: aparece tras hacer scroll, fijo -->
   <div class="widget-flotante" id="widgetFlotante">
     <a href="https://play.google.com/store/apps/details?id=com.jesuskrastev.bali" target="_blank" rel="noopener">
@@ -174,7 +155,9 @@
     </a>
   </div>
 
+  <script src="js/nav.js"></script>
   <script src="data/aprendizaje.js"></script>
+  <script src="js/aprendizaje-detalle.js"></script>
   <script src="js/aprendizaje.js"></script>
 </body>
 
