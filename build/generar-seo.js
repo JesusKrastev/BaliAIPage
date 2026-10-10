@@ -6,7 +6,6 @@ const site = require('../data/site').url;
 const seo = require('../data/seo');
 const bloques = require('../data/aprendizaje');
 const posts = require('../data/blog');
-const imagenHtml = require('./imagenes-blog');
 const esc = value => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const json = value => JSON.stringify(value).replace(/</g, '\\u003c');
 const region = (html, name, content) => {
@@ -34,8 +33,8 @@ const schemas = {
 };
 home = region(home, 'schema', '<script type="application/ld+json">' + json(schemas) + '</script>');
 const faqHtml = '<section class="seo-faq" id="faq"><div class="container"><h2 class="section-title">Preguntas frecuentes sobre <span>Bali AI y el teórico DGT</span></h2>' + seo.faq.map(f => '<details><summary>' + esc(f.pregunta) + '</summary><p>' + esc(f.respuesta) + '</p><a href="' + esc(f.enlace) + '">Más información</a></details>').join('\n') + '</div></section>';
-const guideHtml = '<section class="seo-guides"><div class="container"><h2 class="section-title">Guías para <span>preparar el teórico DGT</span></h2><div class="blog-grid">' + posts.slice(0, 3).map(p => '<a class="blog-card" href="blog/' + esc(p.id) + '.html">' + imagenHtml(p, '', false) + '<h3>' + esc(p.titulo) + '</h3><p>' + esc(p.resumen) + '</p></a>').join('') + '</div></div></section>';
-const content = '<!-- SEO:content:start -->\n' + guideHtml + '\n' + faqHtml + '\n<!-- SEO:content:end -->';
+const guideHtml = '<section class="landing-resources"><div class="container"><h2>Recursos para acompañar tu estudio</h2><p>Además de la app, puedes consultar nuestras guías y el temario gratuito.</p><div class="resource-links">' + posts.slice(0, 3).map(p => '<a href="blog/' + esc(p.id) + '.html">' + esc(p.titulo) + ' →</a>').join('') + '<a href="aprendizaje.html">Temario del permiso B →</a><a href="test-dgt-gratis.html">Mini test gratuito en la web →</a></div></div></section>';
+const content = '<!-- SEO:content:start -->\n' + faqHtml + '\n' + guideHtml + '\n<!-- SEO:content:end -->';
 home = /<!-- SEO:content:start -->/.test(home) ? home.replace(/<!-- SEO:content:start -->[\s\S]*?<!-- SEO:content:end -->/, () => content) : home.replace('  <!-- CTA -->', content + '\n  <!-- CTA -->');
 fs.writeFileSync(path.join(root, 'index.html'), home);
 

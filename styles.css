@@ -587,6 +587,7 @@ footer { background: var(--dark-bg); border-top: 1px solid rgba(255,255,255,0.05
 .text-link { color: var(--orange-light); font-weight: 800; display: inline-block; text-decoration: underline; text-underline-offset: 4px; }
 .study-mode .text-link { margin-top: auto; }
 .app-split { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
+.app-split > div { min-width: 0; }
 .app-split .section-title { margin-bottom: 24px; }
 .app-square-art { display: block; width: 360px; margin: 0 auto 24px; }
 .app-wide-art { border-radius: 24px; margin-bottom: 16px; }
@@ -601,6 +602,19 @@ footer { background: var(--dark-bg); border-top: 1px solid rgba(255,255,255,0.05
 .topic-card img { display: block; width: 100%; }
 .topic-card > div { padding: 24px; }
 .section-more { display: block; width: fit-content; margin: 32px auto 0; }
+.section-download { text-align: center; margin-top: 32px; }
+.app-topics { grid-template-columns: repeat(4, 1fr); gap: 18px; }
+.app-topics .topic-card > div { padding: 20px; }
+.app-topics .topic-card h3 { font-size: 1.15rem; }
+.app-topics .topic-card p { font-size: .95rem; margin: 0; }
+.progress-art .app-square-art { width: 320px; max-width: 100%; }
+#progreso .reward-row { margin: 0 0 24px; }
+.landing-resources { padding: 32px 0 48px; border-top: 1px solid #ffffff12; }
+.landing-resources h2 { font-size: 1.25rem; margin-bottom: 12px; }
+.landing-resources p { color: var(--light-muted); font-size: .95rem; margin-bottom: 20px; }
+.resource-links { display: flex; flex-wrap: wrap; gap: 12px 24px; }
+.resource-links a { color: var(--light-muted); font-size: .9rem; text-decoration: underline; text-underline-offset: 4px; }
+.resource-links a:hover { color: var(--orange-light); }
 .reward-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-top: 28px; }
 .reward-row img { width: 64px; height: 64px; object-fit: contain; }
 .reward-row p { width: 100%; font-size: .85rem; margin: 0; }
@@ -637,6 +651,7 @@ footer { background: var(--dark-bg); border-top: 1px solid rgba(255,255,255,0.05
 .practice-next p { color: var(--light-muted); margin-bottom: 20px; }
 .practice-next a { display: block; margin: 16px 0; }
 @media (max-width: 900px) {
+  .app-topics { grid-template-columns: repeat(2, 1fr); }
   .landing-v2 .hero .container, .app-split { grid-template-columns: 1fr; gap: 36px; }
   .landing-v2 .hero { padding-top: 118px; }
   .hero-app-art { min-height: 280px; max-width: 420px; width: 100%; margin: auto; }
@@ -649,6 +664,7 @@ footer { background: var(--dark-bg); border-top: 1px solid rgba(255,255,255,0.05
   .nav-links { gap: 20px; }
 }
 @media (max-width: 640px) {
+  .app-topics { grid-template-columns: 1fr; }
   .study-modes, .topic-grid { grid-template-columns: 1fr; }
   .app-section { padding: 56px 0; }
   .study-mode img { width: 170px; height: 170px; }

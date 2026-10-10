@@ -15,6 +15,8 @@ La ficha no permite verificar cifras de aprobados, usuarios activos ni valoraci�
 
 Dominio principal confirmado por el propietario: `https://baliaipage.vercel.app`. Se configura en `data/site.js` y se aplica a canonical, schema, sitemap y tarjetas sociales del HTML publicado.
 
+La portada se centra en la descarga de la app: tests, repaso adaptado a los fallos, simulacros cronometrados, estadísticas, práctica por bloques y Bali Drive. El CTA principal y los de las funciones llevan a Google Play. Las guías, el temario web y el mini test aparecen como recursos secundarios al final y conservan sus páginas indexables.
+
 ## Recursos originales y nuevas páginas
 
 Se conservan 15 originales de `BaliAI/app/src/main/res/drawable` en `build/app-sources`, con sus nombres de origen y textos alternativos en `data/app-assets.js`. El build genera WebP en `img/app`. Son ilustraciones del producto, no capturas de pantallas. El código Android confirma Bali Drive como juego actualmente accesible; las portadas de otros modos se usan como ilustraciones de temas, sin anunciar juegos retirados.
