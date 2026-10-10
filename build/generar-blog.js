@@ -19,6 +19,7 @@ var footerHtml = Plantillas.footerHtml;
 var ctaHtml = Plantillas.ctaHtml;
 var OUT_DIR = path.join(ROOT, 'blog');
 var OG_IMAGE = SITE_URL + '/img/bali.png';
+var imagenHtml = require('./imagenes-blog');
 
 function esc(str) {
   if (str == null) return '';
@@ -53,11 +54,12 @@ function blogPostingJsonLd(post) {
     headline: post.titulo,
     description: post.resumen,
     datePublished: post.fecha,
-    dateModified: post.fecha,
+    dateModified: post.fechaModificacion || post.fecha,
     author: { '@type': 'Organization', name: 'Bali AI' },
     publisher: { '@type': 'Organization', name: 'Bali AI', logo: { '@type': 'ImageObject', url: OG_IMAGE } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': SITE_URL + '/blog/' + post.id + '.html' },
-    image: OG_IMAGE
+    image: post.featureImage ? SITE_URL + '/' + post.featureImage.src : OG_IMAGE,
+    inLanguage: 'es-ES'
   });
 }
 
@@ -92,6 +94,7 @@ function otrosPostsHtml(post) {
   if (!otros.length) return '';
   var tarjetas = otros.map(function (p) {
     return '<a href="' + esc(p.id) + '.html" class="blog-card">' +
+      imagenHtml(p, '../', false) +
       '<div class="blog-card-fecha">' + esc(fechaLegible(p.fecha)) + '</div>' +
       '<h3>' + esc(p.titulo) + '</h3>' +
       '<p>' + esc(p.resumen) + '</p>' +
@@ -106,7 +109,13 @@ function otrosPostsHtml(post) {
 
 function paginaPostHtml(post) {
   var url = SITE_URL + '/blog/' + post.id + '.html';
+  var featureUrl = post.featureImage ? SITE_URL + '/' + post.featureImage.src : OG_IMAGE;
   var cuerpo = post.cuerpoHTML.replace('{{LISTA_BLOQUES}}', listaBloquesHtml());
+  if (post.faq && post.faq.length) {
+    cuerpo += '<section class="seo-faq"><h2>Preguntas frecuentes</h2>' + post.faq.map(function (f) {
+      return '<details><summary>' + esc(f.pregunta) + '</summary><p>' + esc(f.respuesta) + '</p></details>';
+    }).join('') + '</section>';
+  }
 
   return '<!DOCTYPE html>\n' +
 '<html lang="es">\n\n' +
@@ -124,12 +133,16 @@ function paginaPostHtml(post) {
 '  <meta property="og:locale" content="es_ES">\n' +
 '  <meta property="og:title" content="' + esc(post.metaTitle) + '">\n' +
 '  <meta property="og:description" content="' + esc(post.resumen) + '">\n' +
-'  <meta property="og:image" content="' + OG_IMAGE + '">\n\n' +
+'  <meta property="og:image" content="' + featureUrl + '">\n' +
+'  <meta property="og:image:alt" content="' + esc(post.featureImage ? post.featureImage.alt : 'Bali AI') + '">\n' +
+'  <meta property="og:image:width" content="1536">\n' +
+'  <meta property="og:image:height" content="1024">\n\n' +
 '  <!-- Twitter Card -->\n' +
-'  <meta name="twitter:card" content="summary">\n' +
+'  <meta name="twitter:card" content="summary_large_image">\n' +
 '  <meta name="twitter:title" content="' + esc(post.metaTitle) + '">\n' +
 '  <meta name="twitter:description" content="' + esc(post.resumen) + '">\n' +
-'  <meta name="twitter:image" content="' + OG_IMAGE + '">\n\n' +
+'  <meta name="twitter:image" content="' + featureUrl + '">\n' +
+'  <meta name="twitter:image:alt" content="' + esc(post.featureImage ? post.featureImage.alt : 'Bali AI') + '">\n\n' +
 '  <link rel="icon" type="image/png" href="../img/bali.png">\n' +
 '  <link rel="apple-touch-icon" href="../img/bali.png">\n' +
 '  <link rel="stylesheet" href="../styles.css">\n' +
@@ -153,6 +166,7 @@ function paginaPostHtml(post) {
 '        <h1>' + esc(post.titulo) + '</h1>\n' +
 '        <div class="blog-post-fecha">' + esc(fechaLegible(post.fecha)) + '</div>\n' +
 '      </div>\n' +
+'      ' + imagenHtml(post, '../', true) + '\n' +
 '      <div class="blog-post-body">\n' + cuerpo + '\n      </div>\n' +
 '      ' + otrosPostsHtml(post) + '\n' +
 '    </div>\n' +
@@ -171,6 +185,7 @@ function paginaIndexHtml() {
   var url = SITE_URL + '/blog/index.html';
   var tarjetas = POSTS.map(function (p) {
     return '<a href="' + esc(p.id) + '.html" class="blog-card">' +
+      imagenHtml(p, '../', false) +
       '<div class="blog-card-fecha">' + esc(fechaLegible(p.fecha)) + '</div>' +
       '<h3>' + esc(p.titulo) + '</h3>' +
       '<p>' + esc(p.resumen) + '</p>' +
@@ -182,7 +197,7 @@ function paginaIndexHtml() {
 '<head>\n' +
 '  <meta charset="UTF-8">\n' +
 '  <meta name="viewport" content="width=device-width, initial-scale=1.0">\n' +
-'  <title>Blog — Bali AI</title>\n' +
+'  <title>Guías del examen teórico DGT y permiso B | Bali AI</title>\n' +
 '  <meta name="description" content="Artículos sobre el examen teórico de la DGT: cómo funciona, trucos para aprobar, comparativas de apps y las últimas novedades normativas.">\n' +
 '  <link rel="canonical" href="' + url + '">\n' +
 '  <meta name="theme-color" content="#0D0F14">\n\n' +
@@ -191,7 +206,7 @@ function paginaIndexHtml() {
 '  <meta property="og:url" content="' + url + '">\n' +
 '  <meta property="og:site_name" content="Bali AI">\n' +
 '  <meta property="og:locale" content="es_ES">\n' +
-'  <meta property="og:title" content="Blog — Bali AI">\n' +
+'  <meta property="og:title" content="Guías del examen teórico DGT y permiso B | Bali AI">\n' +
 '  <meta property="og:description" content="Artículos sobre el examen teórico de la DGT: cómo funciona, trucos para aprobar, comparativas de apps y las últimas novedades normativas.">\n' +
 '  <meta property="og:image" content="' + OG_IMAGE + '">\n\n' +
 '  <link rel="icon" type="image/png" href="../img/bali.png">\n' +

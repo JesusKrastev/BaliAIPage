@@ -2,8 +2,7 @@
    Cada post es un objeto de este array. `cuerpoHTML` es HTML ya maquetado
    (clases de .blog-post-body en styles.css). Añadir un post nuevo = añadir
    un objeto aquí; build/generar-blog.js se encarga del resto (meta tags,
-   JSON-LD, listado en el índice, sitemap no incluido automáticamente —
-   añadir la URL a mano en sitemap.xml). */
+   JSON-LD, listado en el índice y sitemap automático). */
 
 var PLAY_STORE_URL = 'https://play.google.com/store/apps/details?id=com.jesuskrastev.bali';
 
@@ -16,40 +15,43 @@ function ctaHtml(texto) {
 var BLOG_POSTS = [
   {
     id: 'examen-teorico-dgt-preguntas-fallos-precio',
+    featureImage: { src: 'img/guides/examen-teorico-dgt-preguntas-fallos-precio-feature.webp', width: 1536, height: 1024, alt: 'Coche naranja de juguete junto a un cuaderno de estudio, señales y un temporizador' },
     titulo: 'Examen teórico DGT: preguntas, fallos, precio y validez',
     resumen: 'Cuántas preguntas tiene el examen teórico DGT, cuántos fallos se permiten, qué cuesta en 2026, cuánto tarda el carnet y qué validez tiene si suspendes el práctico.',
     metaTitle: 'Examen teórico DGT 2026: preguntas, fallos y precio | Bali AI',
     fecha: '2026-08-11',
+    fechaModificacion: '2026-10-10',
     faq: [
       { pregunta: '¿Cuántas preguntas tiene el examen teórico de la DGT?', respuesta: '30 preguntas tipo test, con un máximo de 3 fallos permitidos para aprobar.' },
-      { pregunta: '¿Cuánto cuesta el examen teórico DGT en 2026?', respuesta: 'La tasa oficial es de 94,05€, e incluye el examen teórico, el práctico y la expedición del permiso. Da derecho a dos convocatorias.' },
-      { pregunta: '¿Cuánto tarda en llegar el carnet después de aprobar?', respuesta: 'El carnet provisional suele llegar en unos 3 días tras aprobar el práctico. El definitivo tarda de media entre 2 y 6 semanas, aunque puede variar según la provincia.' }
+      { pregunta: '¿Cuánto cuesta el examen teórico DGT en 2026?', respuesta: 'Consulta el importe vigente de la tasa 2.1 en la DGT. La formación en la autoescuela se paga aparte.' },
+      { pregunta: '¿Cuánto tarda en llegar el carnet después de aprobar?', respuesta: 'La DGT indica un plazo aproximado de mes y medio para recibir el permiso definitivo.' }
     ],
     cuerpoHTML:
       '<p>Antes de abrir un solo test, la mayoría de la gente busca lo mismo: cuántas preguntas tiene el examen, cuántos fallos puede permitirse, cuánto le va a costar y qué pasa si algo sale mal por el camino. Aquí tienes las respuestas claras, sin rodeos.</p>' +
 
       '<h2>¿Cuántas preguntas tiene el examen teórico de la DGT?</h2>' +
-      '<p>El examen consta de <strong>30 preguntas tipo test</strong>, con cuatro respuestas posibles cada una. Para aprobar puedes fallar <strong>como máximo 3</strong> — a partir del cuarto fallo, suspendes.</p>' +
+      '<p>El examen del permiso B consta de <strong>30 preguntas tipo test</strong>. Para aprobar puedes fallar <strong>como máximo 3</strong>: a partir del cuarto fallo, suspendes.</p>' +
 
-      '<h2>La novedad de 2026: vídeos de percepción del riesgo</h2>' +
-      '<p>Desde el <strong>5 de febrero de 2026</strong>, el examen ya no se basa solo en memorizar respuestas: la DGT ha empezado a incorporar <strong>vídeos cortos con situaciones reales de tráfico</strong>, donde tienes que identificar el riesgo antes de que ocurra. El formato de 30 preguntas y 3 fallos se mantiene, pero memorizar sin entender el porqué cada vez funciona peor.</p>' +
+      '<h2>Cómo conocer el formato antes de presentarte</h2>' +
+      '<p>Consulta los cuestionarios de ejemplo enlazados en la web de la DGT. Para estudiar, combina el temario por bloques con el repaso de las preguntas que fallas. Intenta explicar la regla detrás de cada respuesta antes de pasar al siguiente test.</p>' +
 
       '<h2>¿Cuánto cuesta el examen teórico DGT en 2026?</h2>' +
-      '<p>La tasa oficial es de <strong>94,05€</strong>. Ese importe incluye los derechos de examen teórico, los del práctico y la expedición del propio permiso — no se paga por separado. Es una tasa finalista (no se devuelve) y te da <strong>dos oportunidades</strong> para presentarte a cada prueba antes de tener que volver a pagar.</p>' +
+      '<p>Comprueba el importe vigente de la <strong>tasa 2.1</strong> en la DGT antes de pagar. No incluye la formación en la autoescuela. Si suspendes dos veces, en la misma prueba o en pruebas diferentes, debes presentar una nueva solicitud y pagar otra tasa.</p>' +
 
       '<h2>¿Cuánto tarda en llegar el carnet después de aprobar?</h2>' +
       '<p>Aquí hay dos plazos distintos:</p>' +
       '<ul>' +
-      '<li><strong>Carnet provisional:</strong> normalmente en unos 3 días tras aprobar el examen práctico, aunque depende de la autoescuela y la provincia.</li>' +
-      '<li><strong>Carnet definitivo (físico):</strong> entre 2 y 6 semanas de media, aunque en algunas provincias la espera total desde que apruebas el teórico puede acercarse a los 3 meses.</li>' +
+      '<li><strong>Permiso provisional:</strong> te permite conducir en España mientras llega el definitivo.</li>' +
+      '<li><strong>Permiso definitivo:</strong> la DGT indica aproximadamente mes y medio para recibirlo en tu domicilio.</li>' +
       '</ul>' +
 
       '<h2>¿Qué validez tiene el teórico si suspendo el práctico?</h2>' +
-      '<p>Una vez aprobado el teórico, tienes <strong>2 años</strong> para aprobar el práctico. Si se cumple ese plazo sin conseguirlo, el teórico caduca y hay que repetirlo. Además, si aprobaste el teórico a la primera, tienes 2 intentos gratuitos para el práctico; si te costó dos intentos, solo tendrás uno antes de pagar tasas nuevas.</p>' +
+      '<p>La prueba aprobada mantiene su validez durante <strong>dos años</strong>. Si no obtienes el permiso dentro de ese plazo, tendrás que volver a examinarte de todas las pruebas.</p>' +
 
       ctaHtml('Con esto ya sabes qué esperar. Lo que de verdad decide si apruebas a la primera es cómo estudias esas semanas antes — nosotros para eso usamos <strong>Bali AI</strong>, porque hacer tests sueltos sin saber en qué fallas de verdad es la forma más lenta de prepararse.') +
 
-      '<p>Sources:</p>' +
+      '<p>Información oficial: <a href="https://www.dgt.es/nuestros-servicios/permisos-de-conducir/obtener-un-nuevo-permiso-de-conducir/requisitos-preparacion-y-presentacion-a-examen/">DGT: requisitos, preparación y presentación a examen</a>.</p>' +
+      '<p>Lecturas adicionales:</p>' +
       '<ul>' +
       '<li><a href="https://aprobify.es/blogs/cuantos-fallos-permite-examen-teorico-dgt/" target="_blank" rel="noopener">¿Cuántos fallos se permiten en el examen teórico de la DGT?</a></li>' +
       '<li><a href="https://www.elconfidencialdigital.com/dgt/articulo/normativa-dgt/adios-test-memoristico-dgt-nuevo-examen-teorico-febrero-2026/20260206165517000936.html" target="_blank" rel="noopener">Adiós al test memorístico DGT: nuevo examen desde febrero 2026</a></li>' +
@@ -61,6 +63,7 @@ var BLOG_POSTS = [
 
   {
     id: 'temario-completo-examen-teorico-dgt',
+    featureImage: { src: 'img/guides/temario-completo-examen-teorico-dgt-feature.webp', width: 1536, height: 1024, alt: 'Libros abiertos y tarjetas de estudio forman un camino hacia un coche naranja' },
     titulo: 'El temario completo del examen teórico DGT, bloque a bloque',
     resumen: 'Todo el temario del examen teórico DGT organizado por bloques: señales, velocidad, normas de circulación, alcohol, sanciones y más. Con esquemas, trucos y tests.',
     metaTitle: 'Temario del examen teórico DGT, bloque a bloque | Bali AI',
@@ -73,6 +76,7 @@ var BLOG_POSTS = [
 
   {
     id: 'errores-suspender-examen-teorico-dgt',
+    featureImage: { src: 'img/guides/errores-suspender-examen-teorico-dgt-feature.webp', width: 1536, height: 1024, alt: 'Coche naranja sobre una carretera curva junto a conos, un lápiz y una goma de borrar' },
     titulo: '5 errores que hacen suspender el examen teórico DGT',
     resumen: 'Los errores más habituales que llevan a suspender el examen teórico de la DGT: cómo estudiar mal sin darte cuenta y qué hacer en su lugar para aprobar a la primera.',
     metaTitle: '5 errores que hacen suspender el teórico DGT | Bali AI',
@@ -100,6 +104,7 @@ var BLOG_POSTS = [
 
   {
     id: 'mejor-app-teorico-dgt',
+    featureImage: { src: 'img/guides/mejor-app-teorico-dgt-feature.webp', width: 1536, height: 1024, alt: 'Móvil con pantalla naranja sin contenido junto a un volante, un coche y tarjetas de estudio' },
     titulo: 'Cómo elegir la mejor app para estudiar el teórico DGT en 2026',
     resumen: 'Qué mirar antes de elegir una app para preparar el examen teórico de la DGT: temario actualizado, adaptación a tus fallos, modo examen real y si es gratis.',
     metaTitle: 'Mejor app para el teórico DGT en 2026: qué mirar | Bali AI',
@@ -127,6 +132,7 @@ var BLOG_POSTS = [
 
   {
     id: 'cambios-carnet-conducir-2026',
+    featureImage: { src: 'img/guides/cambios-carnet-conducir-2026-feature.webp', width: 1536, height: 1024, alt: 'Baliza luminosa naranja junto a un cuaderno abierto y un coche de juguete sobre una carretera' },
     titulo: 'Cambios en el carnet de conducir en 2026: todo lo nuevo',
     resumen: 'Las novedades normativas de 2026 que afectan al examen y al carnet de conducir en España: baliza V16, nuevas normas de adelantamiento, examen con vídeos y más.',
     metaTitle: 'Cambios en el carnet de conducir en 2026 | Bali AI',

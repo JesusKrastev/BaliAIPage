@@ -115,7 +115,7 @@
     var rows = comp.filas.map(function (f) {
       return '<tr><th>' + esc(f.label) + '</th>' + f.valores.map(function (v) { return '<td>' + esc(v) + '</td>'; }).join('') + '</tr>';
     }).join('');
-    var tablaId = 'tabla-' + bloqueId + '-' + Math.random().toString(36).slice(2, 7);
+    var tablaId = 'tabla-' + bloqueId;
 
     return '<div class="comparativa-card">' +
       (comp.titulo ? '<h3 class="comparativa-titulo">' + esc(comp.titulo) + '</h3>' : '') +
@@ -217,7 +217,7 @@
   // ---------- Confusiones típicas (acordeón) ----------
   function renderConfusiones(items) {
     return '<div class="confusiones-list">' + items.map(function (c, i) {
-      var pid = 'conf-' + i + '-' + Math.random().toString(36).slice(2, 7);
+      var pid = 'conf-' + i;
       return '<div class="confusion-item">' +
         '<button class="confusion-pregunta" aria-expanded="false" data-target="' + pid + '">' +
           '<i class="fas fa-circle-question"></i> ' + esc(c.pregunta) + ' <i class="fas fa-chevron-down confusion-chevron"></i>' +

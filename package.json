@@ -2,8 +2,9 @@
   "name": "baliai-page",
   "private": true,
   "scripts": {
-    "prebuild": "node build/comprimir-ilustraciones.js",
-    "build": "node build/generar-paginas-aprendizaje.js && node build/generar-blog.js"
+    "prebuild": "node build/comprimir-ilustraciones.js && node build/preparar-imagenes-blog.js",
+    "build": "node build/generar-paginas-aprendizaje.js && node build/generar-blog.js && node build/generar-seo.js && node build/optimizar-html.js && node build/verificar-seo.js",
+    "seo:check": "node build/verificar-seo.js"
   },
   "dependencies": {
     "sharp": "^0.33.0"

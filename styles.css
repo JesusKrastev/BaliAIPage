@@ -117,7 +117,7 @@ img { max-width: 100%; height: auto; }
 .fi-purple { background: rgba(168,85,247,0.1); color: var(--purple); }
 .fi-gold { background: rgba(255,215,0,0.1); color: var(--gold); }
 .fi-red { background: rgba(239,68,68,0.1); color: var(--red); }
-.feature-card h4 { font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; }
+.feature-card h3 { font-weight: 800; font-size: 1.1rem; margin-bottom: 8px; }
 .feature-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; }
 
 /* ===== HOW IT WORKS ===== */
@@ -126,7 +126,7 @@ img { max-width: 100%; height: auto; }
 .steps-list { display: flex; flex-direction: column; gap: 36px; }
 .step-item { display: flex; gap: 20px; align-items: flex-start; }
 .step-num { width: 52px; height: 52px; background: linear-gradient(135deg, var(--orange), var(--orange-dark)); border-radius: 16px; display: flex; align-items: center; justify-content: center; font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem; color: #fff; flex-shrink: 0; box-shadow: 0 6px 20px rgba(244,123,32,0.3); }
-.step-content h4 { font-weight: 800; font-size: 1.15rem; margin-bottom: 6px; }
+.step-content h3 { font-weight: 800; font-size: 1.15rem; margin-bottom: 6px; }
 .step-content p { color: var(--muted); font-size: 0.92rem; line-height: 1.65; }
 
 /* Exam mockup */
@@ -159,7 +159,7 @@ img { max-width: 100%; height: auto; }
 .game-card { background: var(--dark-card); border-radius: 18px; padding: 24px; border: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 18px; transition: all 0.3s; }
 .game-card:hover { border-color: rgba(244,123,32,0.25); transform: translateX(6px); }
 .game-card-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; flex-shrink: 0; }
-.game-card h4 { font-weight: 800; font-size: 1.05rem; margin-bottom: 4px; }
+.game-card h3 { font-weight: 800; font-size: 1.05rem; margin-bottom: 4px; }
 .game-card p { color: var(--muted); font-size: 0.88rem; line-height: 1.5; }
 
 /* ===== TESTIMONIALS ===== */
@@ -541,3 +541,20 @@ footer { background: var(--dark-bg); border-top: 1px solid rgba(255,255,255,0.05
   .blog-hero { padding: 120px 0 32px; }
   .blog-post { padding: 120px 0 60px; }
 }
+
+/* Guías y FAQ accesibles también sin JavaScript. */
+.seo-guides, .seo-faq { padding: 64px 0; }
+.seo-guides .section-title, .seo-faq .section-title { margin-bottom: 28px; }
+.seo-faq details { border-bottom: 1px solid var(--border, #30333b); padding: 18px 0; }
+.seo-faq summary { cursor: pointer; font-size: 1.1rem; font-weight: 700; line-height: 1.5; }
+.seo-faq details p { margin: 14px 0; line-height: 1.7; }
+.seo-faq details a { color: var(--orange, #ff9a3c); text-decoration: underline; }
+.seo-faq summary:focus-visible { outline: 2px solid #ff9a3c; outline-offset: 5px; }
+.blog-post-body .seo-faq { padding: 24px 0; }
+@media (prefers-reduced-motion: reduce) {
+  .animate-on-scroll { opacity: 1; transform: none; transition: none; }
+}
+
+/* Ilustraciones editoriales de las guías: proporción completa, sin recortes. */
+.blog-feature-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: 20px; margin: 0 0 32px; }
+.blog-card-image { display: block; width: 100%; height: auto; aspect-ratio: 3 / 2; border-radius: 12px; margin-bottom: 18px; }

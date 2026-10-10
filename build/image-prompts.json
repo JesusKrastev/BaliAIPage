@@ -1,0 +1,36 @@
+{
+  "method": "Built-in image_gen tool, explicitly requested by the user",
+  "created": "2026-10-10",
+  "images": [
+    {
+      "slug": "examen-teorico-dgt-preguntas-fallos-precio",
+      "prompt": "A polished stylized 3D editorial illustration about preparing for a Spanish driving theory exam. A neatly arranged study desk holding a small unmarked orange toy car, a plain blank paper checklist with only empty circular bullet indents and no writing, a smooth analog timer with no numerals or letters, and a matte orange pencil. Deep charcoal background #0D0F14, warm vivid orange highlights, soft ivory paper and slate gray materials, rounded premium clay-like shapes with subtle tactile detail. Three-quarter view, balanced composition with generous negative space above, soft cinematic studio lighting. Not a diagram or screenshot, no app interface, no human hands. Landscape editorial feature image, 3:2 composition. Absolutely no text, words, letters, numbers, captions, watermarks, interface labels, or logos.",
+      "source": "C:\\Users\\crazy\\.codex\\generated_images\\01a1250c-9a51-70d1-9472-fe6b5d39a8eb\\exec-7c69ff5e-db0f-4e26-8b44-75bbb491d8e5.png",
+      "workspaceSource": "build/image-sources/examen-teorico-dgt-preguntas-fallos-precio.png"
+    },
+    {
+      "slug": "temario-completo-examen-teorico-dgt",
+      "prompt": "A polished stylized 3D editorial illustration about studying the driving theory syllabus by topic. Several open blank miniature books and stacked plain study cards form a gentle stepped path toward a tiny matte orange car. Some cards carry only simple nonverbal pictograms: an unmarked traffic cone, a steering wheel, and an abstract road curve. Deep charcoal background #0D0F14, warm vivid orange highlights, soft ivory pages and slate gray materials, rounded premium clay-like shapes with subtle tactile detail. Isometric viewpoint, orderly spacious scene, breathing room around the objects, soft cinematic studio lighting. No real traffic sign details, no screenshot or interface, no hands. Landscape editorial feature image, 3:2 composition. Absolutely no text, words, letters, numbers, captions, watermarks, interface labels, or logos.",
+      "source": "C:\\Users\\crazy\\.codex\\generated_images\\01a1250c-9a51-70d1-9472-fe6b5d39a8eb\\exec-4c351525-ec87-4662-8edb-fcc8922ebe3f.png",
+      "workspaceSource": "build/image-sources/temario-completo-examen-teorico-dgt.png"
+    },
+    {
+      "slug": "errores-suspender-examen-teorico-dgt",
+      "prompt": "A polished stylized 3D editorial illustration about learning from mistakes while studying for a driving theory exam. Two short sculptural charcoal road paths on a tabletop: one ends at three small matte orange traffic cones and another curves safely around the cones toward a small warm orange car. An ivory eraser and plain orange pencil sit beside the blocked route, suggesting reviewing and correcting a mistake. Deep charcoal background #0D0F14, vivid orange highlights, soft ivory and slate gray materials, rounded premium clay-like shapes with subtle tactile detail. Elevated three-quarter view, clear simple composition without clutter, breathing room upper left, soft cinematic studio lighting. Do not include real signs, maps, logos, app UI or people. Landscape editorial feature image, 3:2 composition. Absolutely no text, words, letters, numbers, captions, watermarks, interface labels, or logos.",
+      "source": "C:\\Users\\crazy\\.codex\\generated_images\\01a1250c-9a51-70d1-9472-fe6b5d39a8eb\\exec-0501dd03-ea75-478e-bb7a-994acb032933.png",
+      "workspaceSource": "build/image-sources/errores-suspender-examen-teorico-dgt.png"
+    },
+    {
+      "slug": "mejor-app-teorico-dgt",
+      "prompt": "A polished stylized 3D editorial illustration about choosing a mobile app to practice driving theory. A single modern generic smartphone stands at a gentle angle on a charcoal desktop, its display entirely blank warm orange with only a subtle soft reflection and no interface. A small smooth slate-gray steering wheel, a tiny matte orange car and two plain ivory study cards rest beside it. Deep charcoal background #0D0F14, warm vivid orange highlights, soft ivory and slate gray materials, rounded premium clay-like shapes with subtle tactile detail. Eye-level three-quarter product composition, generous breathing room, soft cinematic studio lighting, editorial rather than advertisement. No brand hardware details, no hands, absolutely no invented app UI. Landscape editorial feature image, 3:2 composition. Absolutely no text, words, letters, numbers, captions, watermarks, interface labels, or logos.",
+      "source": "C:\\Users\\crazy\\.codex\\generated_images\\01a1250c-9a51-70d1-9472-fe6b5d39a8eb\\exec-c1464029-fa60-42ce-8a82-56a8eb480230.png",
+      "workspaceSource": "build/image-sources/mejor-app-teorico-dgt.png"
+    },
+    {
+      "slug": "cambios-carnet-conducir-2026",
+      "prompt": "A polished stylized 3D editorial illustration about keeping driving study materials up to date. A small orange emergency warning beacon with a translucent amber dome sits beside a plain ivory open notebook and an orange miniature car on a minimalist slate-gray road segment. The notebook pages are entirely blank, with a few orange bookmark tabs at the edge. Deep charcoal background #0D0F14, warm vivid orange highlights, soft ivory and slate gray materials, rounded premium clay-like shapes with subtle tactile detail. Close three-quarter still-life view, restrained amber glow from beacon, generous breathing room above, soft cinematic studio lighting. This is symbolic editorial art and must not suggest a certified product or depict legal diagrams, road signs, app UI, or people. Landscape editorial feature image, 3:2 composition. Absolutely no text, words, letters, numbers, captions, watermarks, interface labels, or logos.",
+      "source": "C:\\Users\\crazy\\.codex\\generated_images\\01a1250c-9a51-70d1-9472-fe6b5d39a8eb\\exec-d04a113d-2b14-4d06-a51a-88da398af76c.png",
+      "workspaceSource": "build/image-sources/cambios-carnet-conducir-2026.png"
+    }
+  ]
+}
