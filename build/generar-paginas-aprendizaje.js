@@ -16,7 +16,7 @@ var fs = require('fs');
 var path = require('path');
 
 var ROOT = path.join(__dirname, '..');
-var SITE_URL = 'https://baliai.es';
+var SITE_URL = require('../data/site').url;
 var BLOQUES = require(path.join(ROOT, 'data', 'aprendizaje.js'));
 var AprendizajeDetalle = require(path.join(ROOT, 'js', 'aprendizaje-detalle.js'));
 var Plantillas = require(path.join(__dirname, 'plantillas.js'));
@@ -184,6 +184,7 @@ function paginaHtml(bloque, todos) {
 '      </nav>\n' +
 '      <a class="btn-volver" href="../aprendizaje.html"><i class="fas fa-arrow-left"></i> Todos los bloques</a>\n' +
 '      <div id="detalleContenido">\n' + detalleHTML + '\n      </div>\n\n' +
+(['adelantamientos', 'sanciones-puntos'].includes(bloque.id) ? '<p class="content-source">Revisión del contenido: 10 de octubre de 2026. Fuente: <a href="' + (bloque.id === 'adelantamientos' ? 'https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514' : 'https://revista.dgt.es/es/tramites/2025/0403-Recuperar-puntos.shtml') + '">información oficial ' + (bloque.id === 'adelantamientos' ? 'del BOE' : 'de la DGT') + '</a>. Consulta la norma vigente para el caso concreto.</p>' : '') +
 '      ' + otrosTemasHtml(bloque, todos) + '\n' +
 '    </div>\n' +
 '  </section>\n\n' +

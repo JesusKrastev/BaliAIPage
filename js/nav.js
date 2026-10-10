@@ -20,7 +20,17 @@
   var hamburger = document.getElementById('hamburger');
   var navLinks = document.querySelector('.nav-links');
   if (hamburger && navLinks) {
+    navLinks.id = 'nav-links';
+    hamburger.setAttribute('aria-controls', navLinks.id);
+    hamburger.setAttribute('aria-expanded', 'false');
+    function closeMenu() {
+      navLinks.removeAttribute('style');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
     hamburger.addEventListener('click', function () {
+      var opening = hamburger.getAttribute('aria-expanded') !== 'true';
+      if (!opening) { closeMenu(); return; }
+      hamburger.setAttribute('aria-expanded', 'true');
       navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
       navLinks.style.flexDirection = 'column';
       navLinks.style.position = 'absolute';
@@ -32,6 +42,15 @@
       navLinks.style.gap = '16px';
       navLinks.style.borderBottom = '1px solid rgba(244,123,32,0.15)';
     });
+    navLinks.addEventListener('click', function (event) {
+      if (event.target.closest('a')) closeMenu();
+    });
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape' && hamburger.getAttribute('aria-expanded') === 'true') {
+        closeMenu(); hamburger.focus();
+      }
+    });
+    window.addEventListener('resize', closeMenu);
   }
 
   var btnCompartir = document.getElementById('btnCompartir');

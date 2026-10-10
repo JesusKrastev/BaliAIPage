@@ -1,7 +1,7 @@
 // Textos visibles y datos estructurados comparten esta fuente.
 module.exports = {
-  title: 'Bali AI: tests DGT gratis para el examen teórico',
-  description: 'Prepara el examen teórico DGT con Bali AI para Android. Tests gratis, repaso de fallos con IA, simulacros y temario del permiso B por temas.',
+  title: 'Bali AI: app para el teórico DGT con IA | Android',
+  description: 'Prepara el teórico DGT con Bali AI para Android: tests, repaso de fallos con IA y práctica por temas. Prueba un mini test gratis y descarga la app.',
   faq: [
     { pregunta: '¿Qué es Bali AI?', respuesta: 'Bali AI es una app para Android que ayuda a preparar el examen teórico de la DGT. Incluye tests, simulacros y repaso de errores con inteligencia artificial.', enlace: 'blog/mejor-app-teorico-dgt.html' },
     { pregunta: '¿Bali AI se puede descargar gratis?', respuesta: 'La descarga es gratuita en Google Play. La ficha de la tienda también indica compras dentro de la aplicación; consulta allí las condiciones vigentes.', enlace: '#descargar' },

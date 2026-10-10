@@ -110,7 +110,7 @@ var APRENDIZAJE_BLOQUES = [
       { pregunta: 'Un círculo con borde rojo y pictograma negro indica...', opciones: ['Obligación', 'Prohibición o restricción', 'Información', 'Peligro'], correcta: 1, explicacion: 'Círculo, borde rojo, fondo blanco = prohibición.' },
       { pregunta: 'En un STOP sin tráfico a la vista, ¿qué debes hacer?', opciones: ['Reducir y seguir si no viene nadie', 'Detenerte por completo igualmente', 'Solo pararte si hay otro vehículo', 'Tocar el claxon y continuar'], correcta: 1, explicacion: 'El STOP exige detención total siempre, a diferencia del ceda el paso.' },
       { pregunta: '¿De qué color es el fondo de las señales de obligación?', opciones: ['Blanco', 'Amarillo', 'Azul', 'Verde'], correcta: 2, explicacion: 'Obligación = círculo de fondo azul, pictograma blanco.' },
-      { pregunta: 'Un panel verde en autopista normalmente indica...', opciones: ['Peligro de curva', 'Número de salida o dirección', 'Prohibido adelantar', 'Zona de obras'], correcta: 1, explicacion: 'El verde es el color de la señalización informativa de autopistas y autovías.' },
+      { pregunta: 'Un panel azul de orientación en autopista normalmente indica...', opciones: ['Peligro de curva', 'Número de salida o dirección', 'Prohibido adelantar', 'Zona de obras'], correcta: 1, explicacion: 'En España, los paneles de orientación de autopistas y autovías tienen habitualmente fondo azul.' },
       { pregunta: '¿Qué distingue al ceda el paso del STOP?', opciones: ['El color', 'El tamaño', 'Que solo obliga a parar si hay tráfico real', 'Que solo se usa en ciudad'], correcta: 2, explicacion: 'El ceda el paso exige parar solo si hace falta; el STOP siempre.' }
     ]
   },
@@ -446,7 +446,7 @@ var APRENDIZAJE_BLOQUES = [
     trucos: [
       { icono: 'fa-ruler-horizontal', colorClave: 'naranja', frase: 'Al ciclista, 1,5 metros o no adelantas.', explicacion: 'Es la separación lateral mínima obligatoria en cualquier vía, aunque tengas que invadir parcialmente el carril contrario.' },
       { icono: 'fa-eye-slash', colorClave: 'rojo', frase: 'Si no ves el final, no adelantas.', explicacion: 'Curvas, cambios de rasante, niebla o lluvia intensa: sin visibilidad total del tramo libre, la maniobra queda prohibida.' },
-      { icono: 'fa-calendar-check', colorClave: 'azul', frase: 'Desde octubre de 2026, también cuenta la velocidad.', explicacion: 'Al adelantar a un vehículo parado o a uno o varios ciclistas, la norma exige además reducir la velocidad al menos 20 km/h por debajo del límite de la vía.' }
+      { icono: 'fa-calendar-check', colorClave: 'azul', frase: 'Desde octubre de 2026, revisa también la velocidad.', explicacion: 'Fuera de poblado, el artículo 85.4 exige circular al menos 20 km/h por debajo del límite de la vía antes y durante el adelantamiento a los usuarios vulnerables que enumera, incluidos ciclistas. El artículo 88.1 regula vehículos detenidos por avería, accidente, emergencia y otros supuestos específicos; no cualquier vehículo parado. Consulta el Reglamento General de Circulación vigente.' }
     ],
 
     confusionesTipicas: [
@@ -840,16 +840,16 @@ var APRENDIZAJE_BLOQUES = [
     pasosVisuales: [
       { icono: 'fa-id-card', colorClave: 'azul', texto: 'General: empiezas con 12 puntos' },
       { icono: 'fa-user-graduate', colorClave: 'naranja', texto: 'Novel: empiezas con 8' },
-      { icono: 'fa-mobile-screen', colorClave: 'rojo', texto: 'El móvil es lo que más puntos quita: 6' },
+      { icono: 'fa-mobile-screen', colorClave: 'rojo', texto: 'Móvil sostenido con la mano: 6 puntos' },
       { icono: 'fa-ban', colorClave: 'rojo', texto: 'Con 0 puntos, pierdes el carnet' },
-      { icono: 'fa-graduation-cap', colorClave: 'verde', texto: 'Un curso te devuelve hasta 6 puntos' }
+      { icono: 'fa-graduation-cap', colorClave: 'verde', texto: 'Un curso te devuelve hasta 4 puntos' }
     ],
 
     esquema: {
       tipo: 'visual-iconos',
       items: [
-        { icono: 'fa-id-card', colorClave: 'azul', titulo: 'Puntos de salida', texto: '12 para el resto de conductores, 8 para noveles (menos de 3 años)' },
-        { icono: 'fa-mobile-screen', colorClave: 'rojo', titulo: 'Móvil al volante', texto: '6 puntos y 200€, la infracción que más puntos quita' },
+        { icono: 'fa-id-card', colorClave: 'azul', titulo: 'Puntos de salida', texto: '12 para el resto de conductores, 8 para noveles (menos de 2 años)' },
+        { icono: 'fa-mobile-screen', colorClave: 'rojo', titulo: 'Móvil al volante', texto: 'Sujetar el móvil mientras conduces: 6 puntos y 200€' },
         { icono: 'fa-user-shield', colorClave: 'naranja', titulo: 'Cinturón', texto: '4 puntos, una de las infracciones más frecuentes' },
         { icono: 'fa-gauge-high', colorClave: 'verde', titulo: 'Exceso de velocidad', texto: 'Entre 2 y 6 puntos, según cuánto te pases del límite' }
       ]
@@ -859,36 +859,36 @@ var APRENDIZAJE_BLOQUES = [
       titulo: 'Recuperar puntos: 2 caminos muy distintos',
       resumenVisual: [
         { icono: 'fa-graduation-cap', titulo: 'Curso voluntario', colorClave: 'verde', punto: 'Lo haces tú, antes de quedarte a 0' },
-        { icono: 'fa-ban', titulo: 'Perder el carnet', colorClave: 'rojo', punto: 'Ocurre automáticamente al llegar a 0 puntos' }
+        { icono: 'fa-ban', titulo: 'Perder el carnet', colorClave: 'rojo', punto: 'Tras declararse y notificarse la pérdida de vigencia' }
       ],
       columnas: ['Curso voluntario', 'Perder todos los puntos'],
       filas: [
-        { label: '¿Cuándo se hace?', valores: ['Cuando quieras, antes de perder el carnet', 'Obligatorio, después de quedarte a 0'] },
-        { label: 'Puntos que recuperas', valores: ['Hasta 6 puntos', '8 puntos, tras superar el curso y el examen'] },
+        { label: '¿Cuándo se hace?', valores: ['Con saldo positivo inferior al inicial', 'Obligatorio, después de quedarte a 0'] },
+        { label: 'Puntos que recuperas', valores: ['Hasta 4 puntos', '8 puntos, tras superar el curso y el examen'] },
         { label: '¿Puedes conducir mientras tanto?', valores: ['Sí, no pierdes el carnet', 'No, el permiso pierde su vigencia'] },
-        { label: 'Otro requisito', valores: ['Ninguno adicional', 'Esperar 6 meses (3 si eres profesional) y aprobar de nuevo el examen teórico'] }
+        { label: 'Otro requisito', valores: ['Una vez cada 2 años (cada año para profesionales)', 'Esperar 6 meses (3 si eres profesional) y aprobar de nuevo el examen teórico'] }
       ]
     },
 
     trucos: [
       { icono: 'fa-user-graduate', colorClave: 'naranja', frase: 'De novel a 12, en 2 años sin nada.', explicacion: 'Si empiezas con 8 puntos y pasas 2 años sin infracciones, subes automáticamente a 12.' },
       { icono: 'fa-mobile-screen', colorClave: 'rojo', frase: 'El móvil es el que más caro sale.', explicacion: 'Coger el móvil conduciendo quita 6 puntos, más que casi cualquier otra infracción habitual.' },
-      { icono: 'fa-graduation-cap', colorClave: 'verde', frase: 'No esperes a llegar a 0.', explicacion: 'El curso voluntario de sensibilización te devuelve hasta 6 puntos sin tener que perder el carnet ni volver a examinarte.' }
+      { icono: 'fa-graduation-cap', colorClave: 'verde', frase: 'No esperes a llegar a 0.', explicacion: 'El curso voluntario de sensibilización te devuelve hasta 4 puntos sin tener que perder el carnet ni volver a examinarte.' }
     ],
 
     confusionesTipicas: [
-      { pregunta: '¿Todos los conductores empiezan con los mismos puntos?', respuesta: 'No. Los conductores generales empiezan con 12 puntos; los noveles (menos de 3 años de carnet) empiezan con 8, y suben a 12 si pasan 2 años sin infracciones.' },
+      { pregunta: '¿Todos los conductores empiezan con los mismos puntos?', respuesta: 'No. Los conductores generales empiezan con 12 puntos; los noveles (menos de 2 años de carnet) empiezan con 8, y suben a 12 si pasan 2 años sin infracciones.' },
       { pregunta: '¿Qué pasa si llego a 0 puntos?', respuesta: 'El permiso pierde su vigencia: no puedes conducir. Para recuperarlo hay que esperar 6 meses (3 si eres profesional), hacer un curso de reeducación vial de 20 horas y aprobar de nuevo el examen teórico.' },
-      { pregunta: '¿El curso de sensibilización solo sirve si te quedas sin puntos?', respuesta: 'No. También puedes hacerlo de forma voluntaria antes de perder el carnet, para recuperar hasta 6 puntos sin necesidad de quedarte a 0 ni de volver a examinarte.' }
+      { pregunta: '¿El curso de sensibilización solo sirve si te quedas sin puntos?', respuesta: 'No. También puedes hacerlo de forma voluntaria antes de perder el carnet, para recuperar hasta 4 puntos sin necesidad de quedarte a 0 ni de volver a examinarte.' }
     ],
 
     quiz: [
-      { pregunta: '¿Con cuántos puntos empieza un conductor novel?', opciones: ['4', '8', '10', '12'], correcta: 1, explicacion: 'Los conductores noveles (menos de 3 años de carnet) empiezan con 8 puntos, hasta 12 si pasan 2 años sin infracciones.' },
+      { pregunta: '¿Con cuántos puntos empieza un conductor novel?', opciones: ['4', '8', '10', '12'], correcta: 1, explicacion: 'Los conductores noveles (menos de 2 años de carnet) empiezan con 8 puntos, hasta 12 si pasan 2 años sin infracciones.' },
       { pregunta: '¿Cuántos puntos quita usar el móvil conduciendo?', opciones: ['2', '4', '6', '8'], correcta: 2, explicacion: 'El uso del móvil al volante quita 6 puntos, además de 200€ de multa.' },
       { pregunta: '¿Cuántos puntos quita no llevar puesto el cinturón?', opciones: ['2', '4', '6', 'Ninguno, solo es multa'], correcta: 1, explicacion: 'No llevar el cinturón de seguridad quita 4 puntos.' },
       { pregunta: '¿Qué ocurre al llegar a 0 puntos?', opciones: ['Nada, se reinician automáticamente', 'El permiso pierde su vigencia', 'Solo te avisan por carta', 'Pierdes 2 puntos más'], correcta: 1, explicacion: 'Con 0 puntos, el permiso de conducir pierde su vigencia y no puedes conducir.' },
       { pregunta: '¿Cuántos puntos recuperas al superar el curso obligatorio tras perder el carnet?', opciones: ['4', '6', '8', '12'], correcta: 2, explicacion: 'Tras superar el curso de reeducación vial y el examen teórico, se recuperan 8 puntos.' },
-      { pregunta: '¿Se puede hacer el curso de sensibilización sin haber perdido el carnet?', opciones: ['No, solo tras perder todos los puntos', 'Sí, de forma voluntaria, para recuperar hasta 6 puntos', 'Solo lo pueden hacer los noveles', 'Solo una vez en la vida'], correcta: 1, explicacion: 'El curso voluntario se puede hacer antes de quedarte a 0, y devuelve hasta 6 puntos.' }
+      { pregunta: '¿Se puede hacer el curso de sensibilización sin haber perdido el carnet?', opciones: ['No, solo tras perder todos los puntos', 'Sí, de forma voluntaria, para recuperar hasta 4 puntos', 'Solo lo pueden hacer los noveles', 'Solo una vez en la vida'], correcta: 1, explicacion: 'El curso voluntario se puede hacer antes de quedarte a 0, y devuelve hasta 4 puntos.' }
     ]
   },
 

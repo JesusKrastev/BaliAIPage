@@ -10,7 +10,7 @@ var fs = require('fs');
 var path = require('path');
 
 var ROOT = path.join(__dirname, '..');
-var SITE_URL = 'https://baliai.es';
+var SITE_URL = require('../data/site').url;
 var POSTS = require(path.join(ROOT, 'data', 'blog.js'));
 var BLOQUES = require(path.join(ROOT, 'data', 'aprendizaje.js'));
 var Plantillas = require(path.join(__dirname, 'plantillas.js'));
@@ -55,7 +55,7 @@ function blogPostingJsonLd(post) {
     description: post.resumen,
     datePublished: post.fecha,
     dateModified: post.fechaModificacion || post.fecha,
-    author: { '@type': 'Organization', name: 'Bali AI' },
+    author: { '@type': 'Organization', name: 'Equipo Bali AI', url: SITE_URL + '/#organization' },
     publisher: { '@type': 'Organization', name: 'Bali AI', logo: { '@type': 'ImageObject', url: OG_IMAGE } },
     mainEntityOfPage: { '@type': 'WebPage', '@id': SITE_URL + '/blog/' + post.id + '.html' },
     image: post.featureImage ? SITE_URL + '/' + post.featureImage.src : OG_IMAGE,
@@ -90,7 +90,9 @@ function listaBloquesHtml() {
 }
 
 function otrosPostsHtml(post) {
-  var otros = POSTS.filter(function (p) { return p.id !== post.id; }).slice(0, 3);
+  var otros = POSTS.filter(function (p) { return p.id !== post.id; });
+  if (post.related) otros.sort(function (a, b) { return (post.related.indexOf(a.id) === -1 ? 99 : post.related.indexOf(a.id)) - (post.related.indexOf(b.id) === -1 ? 99 : post.related.indexOf(b.id)); });
+  otros = otros.slice(0, 3);
   if (!otros.length) return '';
   var tarjetas = otros.map(function (p) {
     return '<a href="' + esc(p.id) + '.html" class="blog-card">' +
@@ -111,6 +113,13 @@ function paginaPostHtml(post) {
   var url = SITE_URL + '/blog/' + post.id + '.html';
   var featureUrl = post.featureImage ? SITE_URL + '/' + post.featureImage.src : OG_IMAGE;
   var cuerpo = post.cuerpoHTML.replace('{{LISTA_BLOQUES}}', listaBloquesHtml());
+  const headings = [];
+  cuerpo = cuerpo.replace(/<h2>([\s\S]*?)<\/h2>/g, function (_, text) {
+    const id = 'apartado-' + (headings.length + 1);
+    headings.push({ id, text });
+    return '<h2 id="' + id + '">' + text + '</h2>';
+  });
+  if (headings.length > 2) cuerpo = '<nav class="article-toc" aria-label="Contenido de la guía"><strong>En esta guía</strong><ol>' + headings.map(h => '<li><a href="#' + h.id + '">' + h.text + '</a></li>').join('') + '</ol></nav>' + cuerpo;
   if (post.faq && post.faq.length) {
     cuerpo += '<section class="seo-faq"><h2>Preguntas frecuentes</h2>' + post.faq.map(function (f) {
       return '<details><summary>' + esc(f.pregunta) + '</summary><p>' + esc(f.respuesta) + '</p></details>';
@@ -135,8 +144,8 @@ function paginaPostHtml(post) {
 '  <meta property="og:description" content="' + esc(post.resumen) + '">\n' +
 '  <meta property="og:image" content="' + featureUrl + '">\n' +
 '  <meta property="og:image:alt" content="' + esc(post.featureImage ? post.featureImage.alt : 'Bali AI') + '">\n' +
-'  <meta property="og:image:width" content="1536">\n' +
-'  <meta property="og:image:height" content="1024">\n\n' +
+'  <meta property="og:image:width" content="' + (post.featureImage ? post.featureImage.width : 500) + '">\n' +
+'  <meta property="og:image:height" content="' + (post.featureImage ? post.featureImage.height : 500) + '">\n\n' +
 '  <!-- Twitter Card -->\n' +
 '  <meta name="twitter:card" content="summary_large_image">\n' +
 '  <meta name="twitter:title" content="' + esc(post.metaTitle) + '">\n' +
@@ -164,7 +173,7 @@ function paginaPostHtml(post) {
 '      <a class="btn-volver" href="index.html"><i class="fas fa-arrow-left"></i> Todo el blog</a>\n' +
 '      <div class="blog-post-header">\n' +
 '        <h1>' + esc(post.titulo) + '</h1>\n' +
-'        <div class="blog-post-fecha">' + esc(fechaLegible(post.fecha)) + '</div>\n' +
+'        <div class="blog-post-fecha">Por el Equipo Bali AI · Publicado el <time datetime="' + post.fecha + '">' + esc(fechaLegible(post.fecha)) + '</time>' + (post.fechaModificacion ? ' · Revisado el <time datetime="' + post.fechaModificacion + '">' + esc(fechaLegible(post.fechaModificacion)) + '</time>' : '') + '</div>\n' +
 '      </div>\n' +
 '      ' + imagenHtml(post, '../', true) + '\n' +
 '      <div class="blog-post-body">\n' + cuerpo + '\n      </div>\n' +

@@ -17,6 +17,7 @@ function navbarHtml(activo) {
     '        <li><a href="../index.html#funciones">Funciones</a></li>\n' +
     '        <li><a href="../index.html#como-funciona">Cómo funciona</a></li>\n' +
     '        <li><a href="../aprendizaje.html"' + claseAprendizaje + '>Aprendizaje</a></li>\n' +
+    '        <li><a href="../test-dgt-gratis.html">Test gratis</a></li>\n' +
     '        <li><a href="../blog/index.html"' + claseBlog + '>Blog</a></li>\n' +
     '        <li><a href="../index.html#descargar" class="btn-cta">Descargar</a></li>\n' +
     '      </ul>\n' +
@@ -37,13 +38,14 @@ function footerHtml() {
     '            <img src="../img/bali.webp" alt="Bali AI">\n' +
     '            Bali<span>AI</span>\n' +
     '          </div>\n' +
-    '          <div class="footer-desc">La app de inteligencia artificial para preparar el examen teórico de la DGT. Aprueba más rápido, estudia más inteligente.</div>\n' +
+    '          <div class="footer-desc">Tests, repaso de fallos y temario del permiso B. Prepara el teórico DGT con Bali AI para Android.</div>\n' +
     '        </div>\n' +
     '        <div>\n' +
     '          <div class="footer-title">App</div>\n' +
     '          <a href="../index.html#funciones" class="footer-link">Funciones</a>\n' +
     '          <a href="../index.html#como-funciona" class="footer-link">Cómo funciona</a>\n' +
     '          <a href="../aprendizaje.html" class="footer-link">Aprendizaje</a>\n' +
+    '          <a href="../test-dgt-gratis.html" class="footer-link">Mini test gratis</a>\n' +
     '          <a href="../blog/index.html" class="footer-link">Blog</a>\n' +
     '          <a href="../index.html#descargar" class="footer-link">Descargar</a>\n' +
     '        </div>\n' +
@@ -56,8 +58,7 @@ function footerHtml() {
     '        <div>\n' +
     '          <div class="footer-title">Contacto</div>\n' +
     '          <a href="mailto:appbaliai@gmail.com" class="footer-link">appbaliai@gmail.com</a>\n' +
-    '          <a href="#" class="footer-link">Instagram</a>\n' +
-    '          <a href="#" class="footer-link">Twitter / X</a>\n' +
+    '          <a href="https://play.google.com/store/apps/details?id=com.jesuskrastev.bali" class="footer-link" target="_blank" rel="noopener">Bali AI en Google Play</a>\n' +
     '        </div>\n' +
     '      </div>\n' +
     '      <div class="footer-bottom">\n' +
@@ -73,9 +74,9 @@ function ctaHtml() {
     '    <div class="container">\n' +
     '      <div class="cta-card">\n' +
     '        <img src="../img/happy_bali.webp" alt="Bali te espera" class="cta-mascot">\n' +
-    '        <h2>Esto es el repaso. Para aprobar a la primera, hace falta algo más.</h2>\n' +
-    '        <p class="cta-subtexto">Tests oficiales, modo examen cronometrado y tu progreso guardado.</p>\n' +
-    '        <p class="cta-social-proof">+1.000 conductores ya aprobados · 95.2% · 4.9★</p>\n' +
+    '        <h2>Tu siguiente sesión de estudio empieza en Bali AI</h2>\n' +
+    '        <p class="cta-subtexto">Practica con tests, repasa tus fallos con IA y sigue tu progreso desde el móvil.</p>\n' +
+    '        <p class="cta-social-proof">Android · Descarga gratuita · Compras dentro de la aplicación</p>\n' +
     '        <div class="store-buttons">\n' +
     '          <a href="https://play.google.com/store/apps/details?id=com.jesuskrastev.bali" class="store-btn" target="_blank" rel="noopener">\n' +
     '            <i class="fab fa-google-play"></i>\n' +

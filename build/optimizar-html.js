@@ -21,7 +21,7 @@ async function optimize(dir) {
       let optimized = tag.replace(/\s(?:width|height)="[^"]*"/g, '');
       optimized = optimized.replace('<img', '<img width="' + width + '" height="' + height + '"');
       const hero = /class="[^"]*(?:hero-mascot|detalle-header-img)/.test(tag);
-      if (hero) optimized = optimized.replace(/\sloading="[^"]*"/g, '').replace('<img', '<img fetchpriority="high" loading="eager"');
+      if (hero) optimized = optimized.replace(/\s(?:loading|fetchpriority)="[^"]*"/g, '').replace('<img', '<img fetchpriority="high" loading="eager"');
       html = html.replace(tag, () => optimized);
     }
     fs.writeFileSync(file, html);

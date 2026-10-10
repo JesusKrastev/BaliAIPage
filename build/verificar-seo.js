@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const assert = require('assert/strict');
 const root = path.join(__dirname, '../dist');
-const site = 'https://baliai.es';
+const site = require('../data/site').url;
 const seo = require('../data/seo');
 const bloques = require('../data/aprendizaje');
 const posts = require('../data/blog');
@@ -10,9 +10,12 @@ const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 assert.equal(new Set(urls).size, urls.length, 'URLs duplicadas en sitemap');
 const titles = new Set();
+const pageLinks = new Map();
 for (const url of urls) {
   const file = new URL(url).pathname === '/' ? 'index.html' : new URL(url).pathname.slice(1);
   const html = fs.readFileSync(path.join(root, file), 'utf8');
+  assert.ok(!html.includes('https://baliai.es'), file + ': dominio anterior publicado');
+  pageLinks.set(url, []);
   assert.equal((html.match(/<h1(?:\s|>)/g) || []).length, 1, file + ': debe tener un H1');
   assert.ok(html.includes('rel="canonical" href="' + url + '"'), file + ': canonical');
   assert.ok(/<meta name="description"\s+content="[^"]+"/.test(html), file + ': descripción');
@@ -27,6 +30,13 @@ for (const url of urls) {
     if (resolved.origin !== site) continue;
     const target = path.join(root, resolved.pathname === '/' ? 'index.html' : resolved.pathname.slice(1));
     assert.ok(fs.existsSync(target), file + ': recurso inexistente ' + value);
+    if (resolved.hash && /\.html$/.test(target)) {
+      const targetHtml = fs.readFileSync(target, 'utf8');
+      assert.ok(targetHtml.includes('id="' + decodeURIComponent(resolved.hash.slice(1)) + '"'), file + ': ancla inexistente ' + value);
+    }
+    resolved.hash = ''; resolved.search = '';
+    const canonical = resolved.pathname === '/index.html' ? site + '/' : resolved.href;
+    if (urls.includes(canonical)) pageLinks.get(url).push(canonical);
   }
   for (const match of html.matchAll(/<meta\s+(?:property|name)="(?:og:image|twitter:image)"\s+content="([^"]+)"/g)) {
     const image = new URL(match[1]);
@@ -41,6 +51,14 @@ for (const url of urls) {
     }
   }
 }
+const reachable = new Set([site + '/']);
+let frontier = [...reachable];
+while (frontier.length) {
+  const next = [];
+  for (const page of frontier) for (const link of pageLinks.get(page) || []) if (!reachable.has(link)) { reachable.add(link); next.push(link); }
+  frontier = next;
+}
+assert.equal(reachable.size, urls.length, 'Todas las páginas deben ser accesibles desde la portada');
 const home = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 const graph = [...home.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1])).find(o => o['@graph']);
 const faq = graph['@graph'].find(o => o['@type'] === 'FAQPage');

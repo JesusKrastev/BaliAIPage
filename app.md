@@ -11,7 +11,22 @@ Revisión: 10 de octubre de 2026.
 - Funciones descritas: tests adaptados al historial de respuestas, repaso de errores, simulacros, práctica por temas y estadísticas de progreso. El temario incluye el permiso B.
 - Aplicación independiente de la DGT.
 
-La ficha no permite verificar las cifras de aprobados, usuarios activos ni valoración media que ya aparecen en la web. No se añaden al schema. Conviene respaldarlas con datos propios antes de usarlas como prueba social. No se ha confirmado una versión iOS.
+La ficha no permite verificar cifras de aprobados, usuarios activos ni valoración media. Se han retirado de la portada y del CTA compartido. No se ha confirmado una versión iOS.
+
+Dominio principal confirmado por el propietario: `https://baliaipage.vercel.app`. Se configura en `data/site.js` y se aplica a canonical, schema, sitemap y tarjetas sociales del HTML publicado.
+
+## Recursos originales y nuevas páginas
+
+Se conservan 15 originales de `BaliAI/app/src/main/res/drawable` en `build/app-sources`, con sus nombres de origen y textos alternativos en `data/app-assets.js`. El build genera WebP en `img/app`. Son ilustraciones del producto, no capturas de pantallas. El código Android confirma Bali Drive como juego actualmente accesible; las portadas de otros modos se usan como ilustraciones de temas, sin anunciar juegos retirados.
+
+Las fuentes Nunito y Nunito Sans se alojan localmente, con las licencias OFL correspondientes en `img/fonts`.
+
+- `test-dgt-gratis.html`: intención «test DGT gratis», 10 preguntas educativas, corrección y enlaces de repaso.
+- `blog/repasar-fallos-test-dgt.html`: cómo repasar los errores; enlaza con el test y los bloques.
+- `blog/plan-estudio-teorico-dgt.html`: planificación del estudio por semanas, sin promesas de aprobar.
+- `blog/como-estudiar-senales-trafico.html`: comparación de señales y repaso de conceptos.
+
+La revisión normativa utiliza el Reglamento General de Circulación consolidado del BOE, el Real Decreto 518/2026 y las páginas oficiales de la DGT sobre V16 y recuperación de puntos. El contenido no sustituye esas fuentes ni la formación de la autoescuela.
 
 ## Palabras clave y ubicación
 
@@ -40,11 +55,11 @@ Se conservan las URLs existentes para aprovechar los contenidos publicados y evi
 - Originales PNG 1536×1024: `build/image-sources/`. Prompts exactos y procedencia: `build/image-prompts.json`.
 - WebP publicados: `img/guides/`, con variantes de 480 y 960 píxeles y una imagen completa de 1536 píxeles por artículo. Los originales se conservan fuera de la carpeta de publicación.
 - Cada ilustración aparece en el artículo, en las tarjetas de blog y artículos relacionados, en Open Graph/Twitter y en el JSON-LD. Las tres guías de portada también muestran sus imágenes.
-- La compilación crea `dist/` con los archivos públicos y comprueba 23 URLs del sitemap. El índice de aprendizaje incluye enlaces sin ejecutar JavaScript.
+- La compilación crea `dist/` con los archivos públicos y comprueba 27 URLs del sitemap. El índice de aprendizaje incluye enlaces sin ejecutar JavaScript.
 - `data/seo.js` alimenta la FAQ visible y su JSON-LD; los generadores usan los datos del blog y aprendizaje.
 
 ## Mantenimiento
 
 Ejecutar `npm ci` y `npm run build`. Usar `npm run seo:check` para repetir la comprobación del resultado publicado. Vercel debe servir `dist/`.
 
-Tras desplegar, enviar `https://baliai.es/sitemap.xml` a Google Search Console. Revisar por separado afirmaciones sobre cambios normativos de 2026 de los artículos existentes antes de ampliar ese contenido. La optimización de metadatos no certifica la exactitud de todo el temario.
+Tras desplegar, enviar `https://baliaipage.vercel.app/sitemap.xml` a Google Search Console. Seguir revisando el temario cuando cambie la normativa. La optimización de metadatos no certifica la exactitud de todo el temario ni garantiza una posición en buscadores.

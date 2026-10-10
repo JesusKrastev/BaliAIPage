@@ -17,8 +17,8 @@ var BLOG_POSTS = [
     id: 'examen-teorico-dgt-preguntas-fallos-precio',
     featureImage: { src: 'img/guides/examen-teorico-dgt-preguntas-fallos-precio-feature.webp', width: 1536, height: 1024, alt: 'Coche naranja de juguete junto a un cuaderno de estudio, señales y un temporizador' },
     titulo: 'Examen teórico DGT: preguntas, fallos, precio y validez',
-    resumen: 'Cuántas preguntas tiene el examen teórico DGT, cuántos fallos se permiten, qué cuesta en 2026, cuánto tarda el carnet y qué validez tiene si suspendes el práctico.',
-    metaTitle: 'Examen teórico DGT 2026: preguntas, fallos y precio | Bali AI',
+    resumen: 'Preguntas, fallos permitidos y validez del teórico DGT. Consulta la tasa vigente y los plazos del permiso con enlaces a información oficial.',
+    metaTitle: 'Examen teórico DGT: preguntas, fallos y precio | Bali AI',
     fecha: '2026-08-11',
     fechaModificacion: '2026-10-10',
     faq: [
@@ -65,7 +65,7 @@ var BLOG_POSTS = [
     id: 'temario-completo-examen-teorico-dgt',
     featureImage: { src: 'img/guides/temario-completo-examen-teorico-dgt-feature.webp', width: 1536, height: 1024, alt: 'Libros abiertos y tarjetas de estudio forman un camino hacia un coche naranja' },
     titulo: 'El temario completo del examen teórico DGT, bloque a bloque',
-    resumen: 'Todo el temario del examen teórico DGT organizado por bloques: señales, velocidad, normas de circulación, alcohol, sanciones y más. Con esquemas, trucos y tests.',
+    resumen: 'Repasa el temario del teórico DGT por bloques: señales, velocidad, circulación y puntos. Teoría gratuita con esquemas y mini tests de Bali AI.',
     metaTitle: 'Temario del examen teórico DGT, bloque a bloque | Bali AI',
     fecha: '2026-08-11',
     cuerpoHTML:
@@ -78,14 +78,14 @@ var BLOG_POSTS = [
     id: 'errores-suspender-examen-teorico-dgt',
     featureImage: { src: 'img/guides/errores-suspender-examen-teorico-dgt-feature.webp', width: 1536, height: 1024, alt: 'Coche naranja sobre una carretera curva junto a conos, un lápiz y una goma de borrar' },
     titulo: '5 errores que hacen suspender el examen teórico DGT',
-    resumen: 'Los errores más habituales que llevan a suspender el examen teórico de la DGT: cómo estudiar mal sin darte cuenta y qué hacer en su lugar para aprobar a la primera.',
+    resumen: 'Cinco errores al preparar el teórico DGT y cómo trabajarlos: memorizar respuestas, confundir señales, no repasar fallos y estudiar sin planificación.',
     metaTitle: '5 errores que hacen suspender el teórico DGT | Bali AI',
     fecha: '2026-08-11',
     cuerpoHTML:
       '<p>Cada año, miles de personas suspenden el teórico no porque el temario sea imposible, sino porque estudian de una forma que no funciona. Estos son los errores que más se repiten.</p>' +
 
       '<h2>1. Memorizar respuestas en vez de entender el porqué</h2>' +
-      '<p>Hacer test tras test y aprenderte "la B" para una pregunta concreta funciona hasta que te cambian ligeramente el enunciado — y con los nuevos vídeos de percepción del riesgo que la DGT introdujo en 2026, memorizar sin entender falla todavía más rápido. Si no sabes explicar por qué una respuesta es correcta, no la sabes de verdad.</p>' +
+      '<p>Aprenderte "la B" para una pregunta concreta deja de ayudar cuando cambia el enunciado. Lee la regla que explica la respuesta y prueba a aplicarla a otro caso. Si todavía dudas, vuelve al bloque del temario antes de hacer otro test.</p>' +
 
       '<h2>2. Confundir señales parecidas</h2>' +
       '<p>STOP y ceda el paso, línea continua y discontinua, prohibición y obligación... son de las preguntas más repetidas y de las que más fallos generan, precisamente porque se estudian todas juntas y se acaban mezclando. Repasarlas por parejas, comparando directamente una contra otra, se olvida mucho menos que verlas sueltas.</p>' +
@@ -99,7 +99,7 @@ var BLOG_POSTS = [
       '<h2>5. No simular las condiciones reales del examen</h2>' +
       '<p>El examen real tiene un cronómetro y unos nervios que un test tranquilo desde el sofá no reproduce. Si nunca has practicado con tiempo limitado, el día del examen esa presión añadida puede hacerte fallar preguntas que en casa te sabías perfectamente.</p>' +
 
-      ctaHtml('De estos cinco, el 2 y el 3 son los que más vemos repetirse. Es literalmente la razón por la que existe <strong>Bali AI</strong>: en vez de tests aleatorios, te hace volver una y otra vez sobre lo que fallas, hasta que se te queda de verdad.')
+      ctaHtml('En <strong>Bali AI</strong> puedes practicar y repasar los fallos según tu historial. Empieza por un tema que te cueste y comprueba si entiendes la explicación.')
   },
 
   {
@@ -113,7 +113,7 @@ var BLOG_POSTS = [
       '<p>Hay decenas de apps para preparar el teórico y todas prometen lo mismo. Antes de instalar la primera que aparece, esto es lo que de verdad marca la diferencia entre aprobar rápido o dar vueltas en círculo.</p>' +
 
       '<h2>1. Que el temario esté actualizado de verdad</h2>' +
-      '<p>La normativa de tráfico cambia con frecuencia — solo en 2026 ha habido novedades como la baliza V16 conectada, cambios en las normas de adelantamiento y la incorporación de vídeos de percepción del riesgo al examen. Una app con preguntas de hace tres años puede enseñarte cosas que ya no son así.</p>' +
+      '<p>Comprueba si el contenido indica su fecha de revisión y enlaza a la DGT o al BOE cuando explica una norma. Hay cambios con una fecha concreta de entrada en vigor: una buena explicación debe distinguir la regla actual de una propuesta o una noticia.</p>' +
 
       '<h2>2. Que se adapte a tus fallos, no que repita lo mismo para todos</h2>' +
       '<p>Hacer tests aleatorios está bien al principio, pero si sigues fallando las mismas 15 preguntas sobre prioridad de paso, necesitas una app que lo detecte y te haga insistir ahí — no que te enseñe otra vez las 30 preguntas que ya dominas.</p>' +
@@ -133,36 +133,44 @@ var BLOG_POSTS = [
   {
     id: 'cambios-carnet-conducir-2026',
     featureImage: { src: 'img/guides/cambios-carnet-conducir-2026-feature.webp', width: 1536, height: 1024, alt: 'Baliza luminosa naranja junto a un cuaderno abierto y un coche de juguete sobre una carretera' },
-    titulo: 'Cambios en el carnet de conducir en 2026: todo lo nuevo',
-    resumen: 'Las novedades normativas de 2026 que afectan al examen y al carnet de conducir en España: baliza V16, nuevas normas de adelantamiento, examen con vídeos y más.',
+    titulo: 'Cambios en el carnet de conducir en 2026: qué revisar',
+    resumen: 'Revisa las novedades de la V16 conectada y el adelantamiento a usuarios vulnerables en 2026. Con fechas, alcance y enlaces a la DGT y al BOE.',
     metaTitle: 'Cambios en el carnet de conducir en 2026 | Bali AI',
     fecha: '2026-08-11',
     cuerpoHTML:
       '<p>2026 está siendo un año con más cambios normativos de lo habitual. Si te estás preparando el teórico ahora mismo, esto es lo que necesitas saber.</p>' +
 
       '<h2>La baliza V16 conectada sustituye a los triángulos</h2>' +
-      '<p>Desde el 1 de enero de 2026, la baliza V16 conectada es el dispositivo de preseñalización obligatorio en caso de avería o accidente, en sustitución de los triángulos tradicionales. Se coloca en el techo del vehículo, sin necesidad de bajarte a la calzada, y emite luz durante al menos 30 minutos. Los triángulos no están prohibidos — usarlos junto a la V16 no supone sanción — pero ya no son obligatorios por sí solos.</p>' +
+      '<p>Desde el 1 de enero de 2026 se exige la V16 conectada para señalizar la inmovilización de los vehículos sujetos a esta obligación en España. Comprueba que el modelo figure en la lista de dispositivos certificados de la DGT; una baliza luminosa sin conexión no equivale a una V16 conectada válida.</p>' +
 
       '<h2>Nuevas normas de adelantamiento desde octubre</h2>' +
-      '<p>A partir del 1 de octubre de 2026, al adelantar a un vehículo parado o a uno o varios ciclistas será obligatorio, además de mantener 1,5 metros de separación lateral, <strong>reducir la velocidad al menos 20 km/h por debajo del límite de la vía</strong>. Hasta ahora era una recomendación; a partir de esa fecha es obligación, con multa de hasta 200€.</p>' +
+      '<p>Desde el 1 de octubre de 2026, el artículo 85.4 del Reglamento General de Circulación exige, fuera de poblado, circular <strong>al menos 20 km/h por debajo del límite de la vía</strong> antes y durante el adelantamiento a los usuarios vulnerables que enumera, incluidos los ciclistas. También exige la separación lateral mínima de 1,5 metros y ocupar por completo el carril contiguo cuando hay más de uno por sentido.</p>' +
+      '<p>El artículo 88.1 regula por separado vehículos detenidos por avería, accidente, emergencia, mantenimiento o control del tráfico, con separación y reducción de velocidad. No debe resumirse como una regla idéntica para cualquier vehículo parado. Consulta el texto vigente y el supuesto concreto.</p>' +
 
-      '<h2>El examen teórico incorpora vídeos de percepción del riesgo</h2>' +
-      '<p>Desde el 5 de febrero de 2026, el examen sigue teniendo 30 preguntas y un máximo de 3 fallos, pero suma vídeos cortos con situaciones reales de tráfico donde hay que identificar el riesgo antes de que ocurra. Memorizar test sin entender el porqué cada vez sirve de menos.</p>' +
+      '<h2>Cómo comprobar el formato del examen</h2>' +
+      '<p>Consulta los requisitos y cuestionarios de ejemplo de la DGT antes de presentarte. Una noticia sobre cambios previstos no basta para afirmar que un formato nuevo ya se aplica en tu convocatoria. Pregunta también a tu autoescuela o jefatura si necesitas aclarar el procedimiento.</p>' +
 
-      '<h2>La rebaja de la tasa de alcoholemia, rechazada</h2>' +
-      '<p>El Congreso rechazó el 18 de marzo de 2026 la propuesta de bajar la tasa general de alcoholemia a 0,2 g/l. Los límites siguen siendo los de siempre: 0,25 mg/l en aire para conductores generales y 0,15 mg/l para noveles y profesionales.</p>' +
+      '<h2>Consulta los límites en la norma vigente</h2>' +
+      '<p>Para estudiar alcohol, distingue las unidades de sangre y aire espirado y el tipo de conductor. El artículo 20 del Reglamento General de Circulación es la referencia para comprobar los límites vigentes. Evita estudiar una propuesta como si ya fuese ley.</p>' +
 
-      ctaHtml('Estar al día de todo esto mientras estudias es un curro aparte — por eso vamos actualizando el temario de <strong>Bali AI</strong> cada vez que cambia algo, para que no te encuentres estudiando una norma que ya no existe.') +
+      ctaHtml('Repasa los temas en <strong>Bali AI</strong> y consulta siempre la fuente oficial cuando necesites confirmar una norma o un trámite.') +
 
-      '<p>Sources:</p>' +
+      '<p>Fuentes oficiales consultadas para esta revisión:</p>' +
       '<ul>' +
       '<li><a href="https://www.dgt.es/muevete-con-seguridad/tecnologia-e-innovacion-en-carretera/Dispositivos-de-presenalizacion-V16/" target="_blank" rel="noopener">DGT — Dispositivos de preseñalización V16</a></li>' +
-      '<li><a href="https://www.motorpasion.com/seguridad/gobierno-hace-oficial-se-acabo-adelantar-a-ciclistas-como-ahora" target="_blank" rel="noopener">La DGT cambia las normas para adelantar a ciclistas</a></li>' +
-      '<li><a href="https://www.elconfidencialdigital.com/dgt/articulo/normativa-dgt/adios-test-memoristico-dgt-nuevo-examen-teorico-febrero-2026/20260206165517000936.html" target="_blank" rel="noopener">Adiós al test memorístico DGT: nuevo examen desde febrero 2026</a></li>' +
-      '<li><a href="https://autoescuelauniversitaria.es/tasa-de-alcoholemia-novel/" target="_blank" rel="noopener">Tasa de alcoholemia novel</a></li>' +
+      '<li><a href="https://www.boe.es/buscar/act.php?id=BOE-A-2003-23514" target="_blank" rel="noopener">BOE: Reglamento General de Circulación, artículos 20, 85 y 88</a></li>' +
+      '<li><a href="https://www.boe.es/buscar/doc.php?id=BOE-A-2026-13889" target="_blank" rel="noopener">BOE: Real Decreto 518/2026</a></li>' +
+      '<li><a href="https://www.dgt.es/nuestros-servicios/permisos-de-conducir/obtener-un-nuevo-permiso-de-conducir/requisitos-preparacion-y-presentacion-a-examen/" target="_blank" rel="noopener">DGT: requisitos y presentación a examen</a></li>' +
       '</ul>'
   }
 ];
 
+if (typeof module !== 'undefined' && module.exports) {
+  BLOG_POSTS.forEach(function (post) {
+    post.fechaModificacion = '2026-10-10';
+    post.cuerpoHTML = post.cuerpoHTML.replace(/<p>Lecturas adicionales:<\/p>[\s\S]*?<\/ul>/, '');
+  });
+  BLOG_POSTS = require('./guias').concat(BLOG_POSTS);
+}
 if (typeof window !== 'undefined') window.BLOG_POSTS = BLOG_POSTS;
 if (typeof module !== 'undefined' && module.exports) module.exports = BLOG_POSTS;
