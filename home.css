@@ -134,7 +134,8 @@
 
 /* ===== Preguntas frecuentes (las inserta generar-seo.js) ===== */
 .home .seo-faq { padding: 110px 0 32px; background: var(--noche); }
-.home .seo-faq .container, .home .seo-faq .section-title { text-align: center; font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.05; margin-bottom: 36px; }
+.home .seo-faq .container { max-width: 860px; }
+.home .seo-faq .section-title { text-align: center; font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.05; margin-bottom: 36px; }
 .home .seo-faq details a { display: inline-block; margin-bottom: 20px; }
 .home .cta { background: var(--noche); padding-top: 64px; }
 
