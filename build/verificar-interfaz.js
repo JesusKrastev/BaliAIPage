@@ -12,7 +12,7 @@ async function main() {
     await page.route('**/_vercel/**', route => route.fulfill({ status: 204, body: '' }));
     for (const width of [1440, 390, 320]) {
       await page.setViewportSize({ width, height: 900 });
-      for (const route of ['/', '/test-dgt-gratis.html', '/blog/repasar-fallos-test-dgt.html', '/aprendizaje.html']) {
+      for (const route of ['/', '/test-dgt-gratis.html', '/aprendizaje.html']) {
         await page.goto('http://127.0.0.1:4173' + route);
         await page.evaluate(() => document.fonts.ready);
         await page.evaluate(async () => {

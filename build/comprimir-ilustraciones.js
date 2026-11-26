@@ -6,8 +6,9 @@
    (mismo nombre, calidad visualmente equivalente, ~90% menos peso) y borra
    el .png original una vez confirmada la conversión.
 
-   Idempotente: si ya existe el .webp, no vuelve a procesar el .png (por si
-   sigue existiendo por algún motivo). Pensado para ejecutarse solo cuando se
+   Convierte todos los .png que encuentre, aunque ya exista su .webp (lo
+   sobrescribe). Como borra cada .png tras convertirlo, una segunda ejecución
+   no encuentra nada que hacer. Pensado para ejecutarse solo cuando se
    añaden ilustraciones nuevas — por eso es un paso "prebuild" aparte y no
    parte de generar-paginas-aprendizaje.js: no tiene sentido re-comprimir en
    cada build si no hay imágenes nuevas.

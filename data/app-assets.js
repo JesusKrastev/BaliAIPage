@@ -1,4 +1,5 @@
-// Recursos originales de la app. Las portadas son ilustraciones, no capturas.
+// Recursos originales de la app (build/app-sources/<name>.png). preparar-recursos-app.js los publica
+// como img/app/<name-con-guiones>.webp. Las portadas son ilustraciones, no capturas.
 module.exports = [
   { name: 'lesson_test', alt: 'Ficha naranja con una estrella para una sesión de test' },
   { name: 'lesson_review', alt: 'Ficha naranja con una marca de verificación para el repaso' },
@@ -8,11 +9,23 @@ module.exports = [
   { name: 'game_senal_relampago_cover', alt: 'Bali junto a una señal triangular de curvas' },
   { name: 'game_legal_o_multa_cover', alt: 'Bali junto a una señal de prohibido estacionar y un vehículo' },
   { name: 'game_puntos_carne_cover', alt: 'Bali junto a una ilustración de permiso de conducir y un indicador de colores' },
-  { name: 'exam_new_record_trophy', alt: 'Trofeo naranja con una estrella y la forma de Bali' },
+  { name: 'exam_new_record_trophy', alt: 'Trofeo dorado con una estrella' },
   { name: 'priority_roundabout', alt: 'Ilustración de una rotonda vista desde arriba con coches y un paso de peatones' },
   { name: 'priority_stop', alt: 'Escena ilustrada de prioridad de paso con una señal de STOP' },
   { name: 'priority_main_road', alt: 'Escena ilustrada de un cruce con vehículos y señalización' },
-  { name: 'shop_double_xp', alt: 'Moneda de experiencia con una estrella y dos flechas ascendentes' },
-  { name: 'shop_surprise_chest', alt: 'Cofre de recompensas de la app Bali AI' },
-  { name: 'streak_recovery', alt: 'Reloj de arena dorado con una flecha de recuperación' }
+  { name: 'shop_double_xp', alt: 'Monedas de experiencia con dos flechas ascendentes' },
+  { name: 'shop_surprise_chest', alt: 'Cofre abierto lleno de monedas' },
+  { name: 'shop_surprise_chest_closed', alt: 'Cofre sorpresa cerrado' },
+  { name: 'streak_recovery', alt: 'Reloj de arena dorado con una flecha de recuperación' },
+  { name: 'streak_freezer', alt: 'Congelador de racha: un bloque de hielo azul' },
+  { name: 'shop_hint', alt: 'Bombilla encendida de las pistas' },
+  { name: 'shop_fifty_fifty', alt: 'Tres cartas, una tachada: la ayuda 50/50' },
+  { name: 'shop_streak_bet', alt: 'Moneda con una bandera: la apuesta de racha' },
+  { name: 'shop_double_coins', alt: 'Monedas con flechas hacia arriba' },
+  { name: 'coin', alt: 'Moneda dorada de Bali AI' },
+  { name: 'onboarding_gift', alt: 'Regalo naranja con lazo dorado' },
+  { name: 'drive_player', alt: 'Coche naranja visto desde arriba, el de Bali Drive' },
+  { name: 'happy_bali', alt: 'Bali, la baliza naranja, sonriendo' },
+  { name: 'bali_login_mascot', alt: 'Bali, la baliza naranja mascota de la app' },
+  { name: 'bali_coins', alt: 'Bali con una cesta llena de monedas' }
 ];

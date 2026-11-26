@@ -5,7 +5,6 @@ const root = path.join(__dirname, '../dist');
 const site = require('../data/site').url;
 const seo = require('../data/seo');
 const bloques = require('../data/aprendizaje');
-const posts = require('../data/blog');
 const sitemap = fs.readFileSync(path.join(root, 'sitemap.xml'), 'utf8');
 const urls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
 assert.equal(new Set(urls).size, urls.length, 'URLs duplicadas en sitemap');
@@ -69,40 +68,6 @@ for (const f of seo.faq) {
 }
 const hub = fs.readFileSync(path.join(root, 'aprendizaje.html'), 'utf8');
 for (const b of bloques.filter(b => b.disponible)) assert.ok(hub.includes('href="aprendizaje/' + b.id + '.html"'), 'Bloque no enlazado en HTML: ' + b.id);
-for (const p of posts.filter(p => p.faq)) {
-  const html = fs.readFileSync(path.join(root, 'blog', p.id + '.html'), 'utf8');
-  for (const f of p.faq) assert.ok(html.includes('<summary>' + f.pregunta + '</summary>'), 'FAQ del blog no visible');
-}
 assert.ok(fs.readFileSync(path.join(root, 'robots.txt'), 'utf8').includes('Sitemap: ' + site + '/sitemap.xml'));
 for (const privatePath of ['.agents', '.git', 'build', 'package.json', 'app.md']) assert.ok(!fs.existsSync(path.join(root, privatePath)), 'Archivo interno publicado: ' + privatePath);
-async function verifyImages() {
-  const sharp = require('sharp');
-  const crypto = require('crypto');
-  const hashes = new Set();
-  for (const post of posts) {
-    assert.ok(post.featureImage, post.id + ': falta imagen editorial');
-    const image = post.featureImage;
-    const source = path.join(root, image.src);
-    const metadata = await sharp(source).metadata();
-    assert.equal(metadata.width, image.width);
-    assert.equal(metadata.height, image.height);
-    assert.ok(metadata.width > metadata.height, post.id + ': imagen no horizontal');
-    const hash = crypto.createHash('sha256').update(fs.readFileSync(source)).digest('hex');
-    assert.ok(!hashes.has(hash), post.id + ': imagen repetida');
-    hashes.add(hash);
-    const html = fs.readFileSync(path.join(root, 'blog', post.id + '.html'), 'utf8');
-    const absoluteUrl = site + '/' + image.src;
-    for (const attribute of ['property="og:image"', 'name="twitter:image"']) assert.ok(html.includes(attribute + ' content="' + absoluteUrl + '"'), post.id + ': imagen social diferente');
-    const article = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m => JSON.parse(m[1])).find(s => s['@type'] === 'BlogPosting');
-    assert.equal(article.image, absoluteUrl);
-    const hero = html.match(/<img\b[^>]*class="blog-feature-image"[^>]*>/)[0];
-    assert.ok(hero.includes('loading="eager"') && hero.includes('fetchpriority="high"'), post.id + ': prioridad de imagen');
-    assert.ok(hero.includes('width="' + metadata.width + '"') && hero.includes('height="' + metadata.height + '"'));
-    for (const size of [480, 960]) {
-      const variant = path.join(root, image.src.replace('-feature.webp', '-' + size + '.webp'));
-      assert.equal((await sharp(variant).metadata()).width, size);
-    }
-  }
-  console.log('SEO verificado: ' + urls.length + ' páginas y ' + hashes.size + ' imágenes editoriales únicas con variantes, metadatos y JSON-LD.');
-}
-verifyImages().catch(error => { console.error(error); process.exitCode = 1; });
+console.log('SEO verificado: ' + urls.length + ' páginas con canonical, metadatos, JSON-LD y enlaces internos válidos.');

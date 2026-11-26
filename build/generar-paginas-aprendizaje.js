@@ -151,7 +151,7 @@ function paginaHtml(bloque, todos) {
 '  <title>' + esc(meta.title) + '</title>\n' +
 '  <meta name="description" content="' + esc(meta.description) + '">\n' +
 '  <link rel="canonical" href="' + url + '">\n' +
-'  <meta name="theme-color" content="#0D0F14">\n\n' +
+'  <meta name="theme-color" content="#060B18">\n\n' +
 '  <!-- Open Graph -->\n' +
 '  <meta property="og:type" content="article">\n' +
 '  <meta property="og:url" content="' + url + '">\n' +

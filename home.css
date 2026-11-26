@@ -1,0 +1,196 @@
+/* ===== BALI AI — Portada =====
+   Solo lo carga index.html, después de styles.css (colores, botones 3D, tarjetas, navbar, descarga
+   y pie). Aquí van las secciones propias: el héroe con Bali brillando, el camino de funciones con
+   capturas reales, la tienda, Bali Drive y autoescuelas. */
+.home { background: var(--noche); }
+.home h2 span { color: var(--naranja); }
+.cabecera { max-width: 760px; margin: 0 auto 64px; text-align: center; }
+.cabecera h2 { font-size: clamp(2.2rem, 4.6vw, 3.6rem); line-height: 1.04; letter-spacing: -0.025em; }
+.cabecera > p:last-child { color: var(--texto-2); font-size: 1.12rem; font-weight: 600; margin-top: 16px; }
+.etiqueta .icono-racha { width: 16px; height: 16px; }
+
+.js .reveal { opacity: 0; transform: translateY(28px); }
+.reveal { transition: opacity .7s ease, transform .7s cubic-bezier(.2, .8, .2, 1); }
+.js .reveal.is-in { opacity: 1; transform: none; }
+
+/* ===== Héroe: Bali brilla en la noche ===== */
+.inicio { position: relative; z-index: 2; isolation: isolate; overflow-x: clip; padding: 124px 0 0; background: radial-gradient(ellipse 50% 60% at 72% 45%, rgba(255, 107, 44, .28), transparent 70%), linear-gradient(to bottom, var(--noche) 55%, var(--noche-2)); }
+.inicio::before { content: ''; position: absolute; inset: 0; z-index: -1; background: url('img/confeti.svg') no-repeat 85% 30% / 760px auto; opacity: .45; }
+.inicio-grid { display: grid; grid-template-columns: minmax(0, 1.02fr) minmax(0, .98fr); gap: 32px; align-items: center; min-height: 600px; }
+.inicio-texto { padding-bottom: 40px; }
+.inicio h1 { font-size: clamp(2.8rem, 5.6vw, 5rem); line-height: .98; letter-spacing: -0.035em; margin-bottom: 22px; }
+.inicio-sub { color: var(--texto-2); font-size: clamp(1.08rem, 1.6vw, 1.25rem); font-weight: 600; line-height: 1.55; max-width: 540px; margin-bottom: 32px; }
+.inicio-botones { display: flex; flex-wrap: wrap; gap: 14px; }
+.boton-grande { padding: 17px 30px; font-size: 1.12rem; border-radius: 18px; }
+.boton-pronto { cursor: default; color: var(--texto-2) !important; }
+.boton-pronto:active { transform: none; box-shadow: 0 5px 0 var(--sombra-tarjeta); }
+.inicio-nota { margin-top: 16px; color: var(--texto-3); font-size: .9rem; font-weight: 700; }
+.inicio-escuelas { display: inline-block; margin-top: 26px; color: var(--texto-2); font-weight: 600; border-bottom: 2px solid var(--borde); padding-bottom: 3px; transition: color .2s, border-color .2s; }
+.inicio-escuelas strong { color: var(--texto); font-weight: 800; }
+.inicio-escuelas:hover { color: var(--texto); border-color: var(--naranja); }
+
+.inicio-escena { position: relative; min-height: 560px; display: grid; place-items: center; }
+.baliza-luz { position: absolute; z-index: -1; left: 50%; top: 50%; width: 760px; height: 760px; margin: -380px 0 0 -380px; pointer-events: none; }
+.baliza-luz::before { content: ''; position: absolute; inset: 0; background: conic-gradient(from 0deg, transparent 0 30deg, rgba(255, 170, 80, .32) 62deg, transparent 94deg 210deg, rgba(255, 170, 80, .32) 242deg, transparent 274deg 360deg); -webkit-mask-image: radial-gradient(circle, #000 0, transparent 66%); mask-image: radial-gradient(circle, #000 0, transparent 66%); filter: blur(4px); animation: giro 7s linear infinite; }
+.baliza-luz::after { content: ''; position: absolute; left: 50%; top: 50%; width: 400px; height: 400px; margin: -200px 0 0 -200px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 150, 70, .55), rgba(255, 107, 44, .12) 55%, transparent 70%); animation: latido 3s ease-in-out infinite; }
+.home .hero-mascot { position: relative; z-index: 2; width: min(400px, 82%); height: auto; animation: flotar 4.5s ease-in-out infinite; filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .5)); }
+.inicio-bocadillo { position: absolute; z-index: 3; top: 6%; left: 2%; transform: rotate(-4deg); font-size: 1.1rem; }
+.inicio-bocadillo::after { left: auto; right: 40px; }
+.inicio-fichas { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.ficha { position: absolute; display: inline-flex; align-items: center; gap: 10px; background: var(--superficie); border: 2px solid var(--borde); border-radius: 18px; padding: 10px 16px; box-shadow: 0 5px 0 var(--sombra-tarjeta), 0 16px 30px rgba(0, 0, 0, .35); font-family: var(--display); font-weight: 900; font-size: 1rem; white-space: nowrap; animation: flotar 5s ease-in-out infinite; }
+.ficha img { width: 30px; height: 30px; }
+.ficha b { font-weight: 900; }
+.inicio-fichas .ficha-racha { right: 0; top: 18%; animation-delay: -1s; }
+.ficha-racha span { display: grid; line-height: 1.1; font-size: .78rem; color: var(--texto-3); font-weight: 800; }
+.ficha-racha span b { color: var(--texto); font-size: 1.05rem; }
+.inicio-fichas .ficha-monedas { left: 4%; bottom: 22%; color: var(--oro); font-size: 1.35rem; animation-delay: -2.4s; }
+.ficha-ok { color: var(--verde); border-color: rgba(47, 211, 111, .55); background: #12301f; animation-delay: -3.3s; }
+.inicio-fichas .ficha-ok { right: 4%; bottom: 12%; }
+.ficha-ok b { display: grid; place-items: center; width: 24px; height: 24px; border-radius: 50%; background: var(--verde); color: #0b2a17; font-size: .85rem; }
+.inicio-cofre { position: absolute; left: 6%; top: 34%; width: 92px; animation: balanceo 5.5s ease-in-out infinite; filter: drop-shadow(0 12px 16px rgba(0, 0, 0, .4)); }
+
+/* Insignias de lo que incluye */
+.ventajas { position: relative; z-index: 4; list-style: none; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; max-width: 1132px; margin: 24px auto 0; padding: 0 24px; transform: translateY(50%); }
+.ventajas li { display: flex; align-items: center; gap: 14px; background: var(--superficie); border: 2px solid var(--borde); border-radius: 22px; box-shadow: 0 6px 0 var(--sombra-tarjeta), 0 20px 40px rgba(0, 0, 0, .3); padding: 14px 18px; font-family: var(--display); font-weight: 900; font-size: 1.02rem; line-height: 1.2; }
+.ventajas img { width: 52px; height: 52px; flex: none; object-fit: contain; }
+
+/* ===== El camino de funciones ===== */
+.camino { position: relative; padding: 170px 0 110px; background: var(--noche-2); }
+.paradas { position: relative; display: grid; gap: 120px; }
+/* La línea del camino, como la de la pantalla de inicio de la app */
+.paradas::before { content: ''; position: absolute; left: 50%; top: 40px; bottom: 40px; width: 8px; margin-left: -4px; border-radius: 8px; background: repeating-linear-gradient(to bottom, var(--naranja) 0 18px, transparent 18px 34px); opacity: .35; }
+.parada { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 96px; align-items: center; scroll-margin-top: 90px; }
+.parada-invertida .parada-visual { order: 2; }
+.parada-visual { position: relative; display: grid; place-items: center; min-height: 520px; }
+.parada-halo { position: absolute; width: 440px; height: 440px; border-radius: 50%; background: radial-gradient(circle, rgba(255, 107, 44, .3), transparent 65%); }
+.movil { position: relative; z-index: 1; width: var(--mw, 270px); margin: 0; padding: 9px; border-radius: 40px; background: #05070f; box-shadow: 0 0 0 2px #2a3150, 0 40px 60px -20px rgba(0, 0, 0, .7); }
+.movil img { display: block; width: 100%; height: auto; border-radius: 32px; }
+.parada .movil { transform: rotate(-3deg); }
+.parada-invertida .movil { transform: rotate(3deg); }
+.parada-objetos { position: absolute; inset: 0; z-index: 2; pointer-events: none; }
+.objeto { position: absolute; width: 104px; height: auto; filter: drop-shadow(0 14px 18px rgba(0, 0, 0, .45)); animation: balanceo 5s ease-in-out infinite; }
+.objeto-a { left: 4%; top: 10%; }
+.objeto-b { right: 2%; top: 36%; animation-delay: -1.8s; }
+.objeto-c { left: 2%; bottom: 12%; animation-delay: -3.2s; }
+.parada-invertida .objeto-a { left: auto; right: 4%; }
+.parada-invertida .objeto-b { right: auto; left: 0; }
+.parada-invertida .objeto-c { left: auto; right: 2%; }
+.objeto-bali { width: 130px; }
+.objeto-llama { width: 96px; }
+.objeto-moneda { width: 80px; }
+.ficha-bocadillo { background: #fff; color: var(--noche); border-color: #fff; }
+.ficha-reloj { display: grid; line-height: 1; text-align: center; color: var(--texto-2); font-size: .8rem; padding: 12px 18px; }
+.ficha-reloj b { color: var(--oro); font-size: 1.8rem; }
+.parada-texto { position: relative; }
+.nodo { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; margin-bottom: 20px; background: radial-gradient(circle at 35% 30%, #ff9a5c, var(--naranja) 65%); box-shadow: 0 5px 0 var(--boton-fondo), 0 0 0 9px #222c4f, 0 0 0 11px #2d3962; }
+.nodo svg { width: 32px; height: 32px; fill: #fff; filter: drop-shadow(0 2px 0 rgba(0, 0, 0, .15)); }
+.parada-texto h2 { font-size: clamp(2rem, 3.8vw, 3rem); line-height: 1.05; letter-spacing: -0.025em; margin-bottom: 18px; }
+.parada-intro { color: var(--texto-2); font-size: 1.14rem; font-weight: 600; line-height: 1.6; max-width: 520px; }
+.chips { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.chips li { background: var(--superficie); border: 2px solid var(--borde); border-radius: 999px; padding: 7px 16px; font-weight: 800; font-size: .92rem; color: var(--texto); }
+.chips li::before { content: '✓'; color: var(--verde); font-weight: 900; margin-right: 8px; }
+.pasos { list-style: none; counter-reset: paso; display: grid; gap: 14px; margin-top: 24px; max-width: 520px; }
+.pasos li { counter-increment: paso; position: relative; padding: 14px 16px 14px 62px; background: var(--superficie); border: 2px solid var(--borde); border-radius: 18px; color: var(--texto-2); font-weight: 600; }
+.pasos li::before { content: counter(paso); position: absolute; left: 14px; top: 50%; margin-top: -17px; width: 34px; height: 34px; display: grid; place-items: center; border-radius: 50%; background: var(--oro); color: var(--noche); font-family: var(--display); font-weight: 900; box-shadow: 0 3px 0 #b8860b; }
+.pasos strong { color: var(--texto); }
+.aviso { margin-top: 20px; font-size: .88rem; font-weight: 600; color: var(--texto-3); max-width: 520px; }
+
+/* ===== La tienda ===== */
+.tienda { position: relative; padding: 110px 0; background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(255, 201, 40, .12), transparent 70%), var(--noche); }
+.tienda-bali { display: block; width: 170px; margin: 0 auto 10px; animation: balanceo 4.6s ease-in-out infinite; filter: drop-shadow(0 16px 20px rgba(0, 0, 0, .45)); }
+.tienda-grid { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.articulo { display: grid; grid-template-columns: 88px 1fr; grid-template-rows: auto 1fr; column-gap: 18px; align-items: center; background: var(--superficie); border: 2px solid var(--borde); border-radius: 26px; box-shadow: 0 6px 0 var(--sombra-tarjeta); padding: 20px 22px; transition: border-color .2s, transform .2s; }
+.articulo:hover { border-color: var(--oro); transform: translateY(-4px); }
+.articulo img { grid-row: 1 / 3; width: 88px; height: 88px; object-fit: contain; filter: drop-shadow(0 8px 10px rgba(0, 0, 0, .35)); }
+.articulo h3 { font-size: 1.22rem; align-self: end; }
+.articulo p { color: var(--texto-2); font-weight: 600; font-size: .94rem; line-height: 1.45; align-self: start; margin-top: 4px; }
+
+/* ===== Bali Drive ===== */
+.drive { padding: 110px 0; background: var(--noche-2); }
+.drive-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: 72px; align-items: center; }
+.drive-visual { position: relative; display: grid; place-items: center; min-height: 600px; }
+.drive-movil { --mw: 290px; transform: rotate(-3deg); }
+.drive-coche { position: absolute; z-index: 2; width: 84px; right: 12%; bottom: 14%; transform: rotate(14deg); filter: drop-shadow(0 14px 16px rgba(0, 0, 0, .5)); animation: balanceo 4s ease-in-out infinite; }
+.drive-bocadillo { position: absolute; z-index: 2; top: 6%; left: 8%; transform: rotate(-4deg); }
+.drive-texto h2 { font-size: clamp(2.1rem, 4vw, 3.2rem); line-height: 1.05; margin-bottom: 18px; }
+.drive-texto p:not(.etiqueta) { color: var(--texto-2); font-size: 1.12rem; font-weight: 600; margin-bottom: 14px; max-width: 520px; }
+.drive-texto .boton { margin-top: 18px; }
+
+/* ===== Autoescuelas ===== */
+.escuelas { position: relative; padding: 110px 0; background: radial-gradient(ellipse 50% 70% at 20% 50%, rgba(255, 107, 44, .18), transparent 70%), var(--noche-2); scroll-margin-top: 70px; }
+.escuelas-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: 72px; align-items: center; }
+.escuelas-cartel { position: relative; max-width: 380px; margin: 0 auto; padding: 150px 28px 28px; text-align: center; background: var(--superficie); border: 2px solid var(--borde); border-radius: 32px; box-shadow: 0 8px 0 var(--sombra-tarjeta); transform: rotate(-2deg); }
+.escuelas-cartel img { position: absolute; left: 50%; top: -60px; width: 190px; margin-left: -95px; animation: flotar 4.6s ease-in-out infinite; filter: drop-shadow(0 18px 20px rgba(0, 0, 0, .45)); }
+.escuelas-cartel span { display: block; font-family: var(--display); font-weight: 900; font-size: clamp(1.3rem, 2.4vw, 2rem); letter-spacing: .08em; text-transform: uppercase; color: var(--noche); background: var(--oro); border-radius: 16px; padding: 16px 10px; box-shadow: 0 6px 0 #b8860b; }
+.escuelas h2 { font-size: clamp(2.1rem, 4vw, 3.1rem); line-height: 1.05; }
+.escuelas-intro { margin-top: 20px; color: var(--texto-2); font-size: 1.12rem; font-weight: 600; max-width: 600px; }
+.escuelas-puntos { list-style: none; display: grid; gap: 14px; margin: 28px 0 32px; max-width: 600px; }
+.escuelas-puntos li { display: flex; align-items: center; gap: 16px; padding: 14px 18px; background: var(--superficie); border: 2px solid var(--borde); border-radius: 20px; }
+.escuelas-puntos img { width: 54px; height: 54px; flex: none; object-fit: contain; }
+.escuelas-puntos h3 { font-size: 1.12rem; margin-bottom: 2px; }
+.escuelas-puntos p { color: var(--texto-2); font-weight: 600; font-size: .96rem; }
+.escuelas-cta { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
+.chip-escuelas { font-weight: 800; font-size: .86rem; color: var(--hielo); padding: 8px 16px; border: 2px dashed rgba(108, 208, 255, .45); border-radius: 999px; }
+
+/* ===== Preguntas frecuentes (las inserta generar-seo.js) ===== */
+.home .seo-faq { padding: 110px 0 32px; background: var(--noche); }
+.home .seo-faq .container, .home .seo-faq .section-title { text-align: center; font-size: clamp(2rem, 4.2vw, 3rem); line-height: 1.05; margin-bottom: 36px; }
+.home .seo-faq details a { display: inline-block; margin-bottom: 20px; }
+.home .cta { background: var(--noche); padding-top: 64px; }
+
+/* Barra fija de descarga en móvil */
+.mobile-download { align-items: center; justify-content: center; gap: 10px; background: var(--boton); color: #fff; font-family: var(--display); font-weight: 900; font-size: 1.05rem; box-shadow: 0 -10px 30px rgba(0, 0, 0, .4); }
+.mobile-download svg { width: 22px; height: 22px; fill: currentColor; }
+
+/* ===== Adaptación ===== */
+@media (max-width: 1100px) {
+  .tienda-grid { grid-template-columns: repeat(2, 1fr); }
+  .parada { gap: 48px; }
+}
+@media (max-width: 900px) {
+  .inicio { padding-top: 100px; }
+  .inicio-grid { grid-template-columns: 1fr; min-height: 0; gap: 0; }
+  .inicio-texto { padding-bottom: 8px; }
+  .inicio-escena { min-height: 440px; }
+  .baliza-luz { width: 560px; height: 560px; margin: -280px 0 0 -280px; }
+  .home .hero-mascot { width: 280px; }
+  .ventajas { grid-template-columns: repeat(2, 1fr); transform: none; margin-top: 8px; padding-bottom: 40px; }
+  .camino { padding-top: 80px; }
+  .paradas { gap: 72px; }
+  .paradas::before { display: none; }
+  .parada { grid-template-columns: 1fr; gap: 28px; }
+  .parada-visual, .parada-invertida .parada-visual { order: 2; min-height: 460px; }
+  .drive-grid, .escuelas-grid { grid-template-columns: 1fr; gap: 56px; }
+  .escuelas-visual { padding-top: 60px; }
+  .drive-visual { min-height: 520px; }
+}
+@media (max-width: 640px) {
+  .home { padding-bottom: 68px; }
+  .cabecera { margin-bottom: 44px; }
+  .inicio h1 { font-size: 2.6rem; }
+  .inicio::before { background-position: center 88%; background-size: 560px auto; opacity: .35; }
+  .inicio .etiqueta { font-size: .7rem; letter-spacing: .08em; }
+  .inicio-botones .boton { flex: 1 1 100%; }
+  .inicio-escena { min-height: 380px; }
+  .home .hero-mascot { width: 230px; }
+  .inicio-bocadillo { top: 0; left: 0; font-size: .95rem; }
+  .ficha { font-size: .9rem; padding: 8px 12px; }
+  .inicio-fichas .ficha-racha { top: 30%; }
+  .inicio-cofre { width: 70px; top: 46%; left: 0; }
+  .ventajas { gap: 10px; }
+  .ventajas li { flex-direction: column; text-align: center; font-size: .92rem; padding: 14px 10px; }
+  .ventajas img { width: 46px; height: 46px; }
+  .parada-visual, .parada-invertida .parada-visual { min-height: 420px; }
+  .movil { --mw: 230px; }
+  .objeto { width: 78px; }
+  .objeto-bali { width: 96px; }
+  .tienda-grid { grid-template-columns: 1fr; }
+  .drive-movil { --mw: 240px; }
+  .drive-coche { right: 4%; width: 64px; }
+  .drive-bocadillo { left: 0; }
+  .escuelas-cta .boton { width: 100%; }
+  .mobile-download { display: flex; position: fixed; bottom: 0; left: 0; right: 0; z-index: 900; padding: 16px 12px calc(16px + env(safe-area-inset-bottom)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .baliza-luz::before { animation: none; }
+}

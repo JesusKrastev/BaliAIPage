@@ -5,7 +5,6 @@ const root = path.join(__dirname, '..');
 const site = require('../data/site').url;
 const seo = require('../data/seo');
 const bloques = require('../data/aprendizaje');
-const posts = require('../data/blog');
 const esc = value => String(value).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 const json = value => JSON.stringify(value).replace(/</g, '\\u003c');
 const region = (html, name, content) => {
@@ -33,8 +32,7 @@ const schemas = {
 };
 home = region(home, 'schema', '<script type="application/ld+json">' + json(schemas) + '</script>');
 const faqHtml = '<section class="seo-faq" id="faq"><div class="container"><h2 class="section-title">Preguntas frecuentes sobre <span>Bali AI y el teórico DGT</span></h2>' + seo.faq.map(f => '<details><summary>' + esc(f.pregunta) + '</summary><p>' + esc(f.respuesta) + '</p><a href="' + esc(f.enlace) + '">Más información</a></details>').join('\n') + '</div></section>';
-const guideHtml = '<section class="landing-resources"><div class="container"><h2>Recursos para acompañar tu estudio</h2><p>Además de la app, puedes consultar nuestras guías y el temario gratuito.</p><div class="resource-links">' + posts.slice(0, 3).map(p => '<a href="blog/' + esc(p.id) + '.html">' + esc(p.titulo) + ' →</a>').join('') + '<a href="aprendizaje.html">Temario del permiso B →</a><a href="test-dgt-gratis.html">Mini test gratuito en la web →</a></div></div></section>';
-const content = '<!-- SEO:content:start -->\n' + faqHtml + '\n' + guideHtml + '\n<!-- SEO:content:end -->';
+const content = '<!-- SEO:content:start -->\n' + faqHtml + '\n<!-- SEO:content:end -->';
 home = /<!-- SEO:content:start -->/.test(home) ? home.replace(/<!-- SEO:content:start -->[\s\S]*?<!-- SEO:content:end -->/, () => content) : home.replace('  <!-- CTA -->', content + '\n  <!-- CTA -->');
 fs.writeFileSync(path.join(root, 'index.html'), home);
 
@@ -51,8 +49,16 @@ const cards = bloques.map(b => {
 hub = hub.replace(/<div class="bloques-grid" id="bloquesGrid">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/, '<div class="bloques-grid" id="bloquesGrid">' + cards + '</div>\n    </div>\n  </section>');
 fs.writeFileSync(path.join(root, 'aprendizaje.html'), hub);
 
-const routes = ['/', '/test-dgt-gratis.html', '/aprendizaje.html', '/blog/index.html', ...bloques.filter(b => b.disponible).map(b => '/aprendizaje/' + b.id + '.html'), ...posts.map(p => '/blog/' + p.id + '.html'), '/privacidad.html', '/terminos.html', '/eliminar-cuenta.html'];
-const dated = new Map(posts.map(p => ['/blog/' + p.id + '.html', p.fechaModificacion || p.fecha]));
+// Las legales se escriben a mano, pero comparten navbar y footer con el resto del sitio.
+for (const file of ['privacidad.html', 'terminos.html', 'eliminar-cuenta.html']) {
+  let legal = fs.readFileSync(path.join(root, file), 'utf8');
+  legal = legal.replace(/<nav class="navbar" id="navbar">[\s\S]*?<\/nav>/, () => templates.navbarHtml('').replace(/\.\.\//g, ''));
+  legal = legal.replace(/<footer>[\s\S]*?<\/footer>/, () => templates.footerHtml().replace(/\.\.\//g, ''));
+  fs.writeFileSync(path.join(root, file), legal);
+}
+
+const routes = ['/', '/test-dgt-gratis.html', '/aprendizaje.html', ...bloques.filter(b => b.disponible).map(b => '/aprendizaje/' + b.id + '.html'), '/privacidad.html', '/terminos.html', '/eliminar-cuenta.html'];
+const dated = new Map();
 dated.set('/', require('../data/site').reviewed);
 dated.set('/test-dgt-gratis.html', require('../data/site').reviewed);
 fs.writeFileSync(path.join(root, 'sitemap.xml'), '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + routes.map(route => '  <url><loc>' + site + route + '</loc>' + (dated.has(route) ? '<lastmod>' + dated.get(route) + '</lastmod>' : '') + '</url>').join('\n') + '\n</urlset>\n');
@@ -61,7 +67,7 @@ fs.writeFileSync(path.join(root, 'robots.txt'), 'User-agent: *\nAllow: /\n\nSite
 // Publicar solo HTML y recursos, sin scripts de build, skills ni archivos internos.
 const dist = path.join(root, 'dist');
 fs.mkdirSync(dist, { recursive: true });
-for (const file of [...new Set(routes.map(r => r === '/' ? 'index.html' : r.slice(1))), 'styles.css', 'robots.txt', 'sitemap.xml']) {
+for (const file of [...new Set(routes.map(r => r === '/' ? 'index.html' : r.slice(1))), 'styles.css', 'home.css', 'robots.txt', 'sitemap.xml']) {
   const destination = path.join(dist, file);
   fs.mkdirSync(path.dirname(destination), { recursive: true });
   if (file.endsWith('.html')) {
